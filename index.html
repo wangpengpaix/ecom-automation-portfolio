@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>电商运营自动化 · 项目作品集</title>
+<style>
+  :root{
+    --bg:#0d1117; --bg2:#161b22; --card:#1c2129; --line:#2d333b;
+    --text:#e6edf3; --muted:#8b949e; --accent:#2f81f7; --accent2:#3fb950;
+    --warning:#d29922; --danger:#f14c4c;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:linear-gradient(160deg,#0d1117,#10141c);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+  /* nav */
+  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);background:rgba(13,17,23,.85);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .brand{font-weight:700;letter-spacing:.3px;display:flex;align-items:center;gap:10px}
+  .brand .dot{width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent)}
+  nav a{color:var(--muted);text-decoration:none;font-size:14px;margin-left:22px;transition:color .2s}
+  nav a:hover{color:var(--text)}
+  /* hero */
+  header{padding:96px 0 56px;text-align:center}
+  .kicker{display:inline-block;font-size:13px;color:var(--accent2);border:1px solid rgba(63,185,80,.4);padding:4px 14px;border-radius:999px;letter-spacing:1px;margin-bottom:22px;background:rgba(63,185,80,.08)}
+  h1{font-size:42px;line-height:1.2;font-weight:800}
+  h1 .grad{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .sub{color:var(--muted);max-width:720px;margin:20px auto 0;font-size:17px}
+  .ctas{margin-top:30px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .btn{display:inline-block;padding:11px 22px;border-radius:8px;text-decoration:none;font-size:15px;font-weight:600;transition:transform .15s,box-shadow .2s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn.primary{background:var(--accent);color:#fff;box-shadow:0 8px 20px rgba(47,129,247,.35)}
+  .btn.ghost{border:1px solid var(--line);color:var(--text)}
+  .btn.ghost:hover{border-color:var(--accent)}
+  section{margin-top:72px}
+  h2{font-size:26px;font-weight:700;display:flex;align-items:center;gap:12px}
+  h2 .num{font-size:14px;color:var(--accent);border:1px solid var(--line);border-radius:6px;padding:2px 10px;font-family:ui-monospace,monospace}
+  .lead{color:var(--muted);margin:14px 0 26px}
+  /* stats */
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px;text-align:center}
+  .stat b{display:block;font-size:30px;color:var(--accent)}
+  .stat span{color:var(--muted);font-size:13px}
+  /* projects */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:20px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:transform .2s,border-color .2s;display:flex;flex-direction:column}
+  .card:hover{transform:translateY(-4px);border-color:var(--accent)}
+  .card .head{padding:20px 20px 8px;display:flex;justify-content:space-between;align-items:center}
+  .card .head .badge{font-size:11px;padding:2px 8px;border-radius:5px;background:var(--accent);color:#fff}
+  .card .head .badge.alt{background:var(--accent2)}
+  .card h3{font-size:19px}
+  .card .pos{color:var(--muted);font-size:13px;margin:2px 20px 0}
+  .card .desc{padding:12px 20px 4px;color:#c9d1d9;font-size:14.5px}
+  .tags{padding:12px 20px 6px;display:flex;flex-wrap:wrap;gap:8px}
+  .tag{font-size:12px;background:rgba(47,129,247,.12);border:1px solid rgba(47,129,247,.3);color:#79b8ff;padding:2px 10px;border-radius:999px}
+  .card .foot{margin-top:auto;padding:16px 20px;border-top:1px solid var(--line)}
+  .card .foot a{color:var(--accent);text-decoration:none;font-size:14px;font-weight:600}
+  .card .foot a:hover{text-decoration:underline}
+  /* skills */
+  .skill-row{display:flex;flex-wrap:wrap;gap:10px}
+  .skill-chip{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-size:14px;color:#c9d1d9}
+  .skill-chip b{color:var(--text)}
+  /* arch svg */
+  .arch{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px;margin-top:6px}
+  .arch svg{width:100%;height:auto}
+  /* timeline */
+  .tl{list-style:none;border-left:2px solid var(--line);margin:6px 0 0 14px;padding-left:26px}
+  .tl li{position:relative;margin-bottom:26px}
+  .tl li::before{content:"";position:absolute;left:-33px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(47,129,247,.15)}
+  .tl .t{font-weight:700}
+  .tl .d{color:var(--muted);font-size:14px}
+  .tl .n{font-size:12px;color:var(--accent2);font-family:ui-monospace,monospace}
+  footer{margin-top:90px;border-top:1px solid var(--line);padding:28px 0 40px;color:var(--muted);font-size:13px;text-align:center}
+  .note{background:rgba(210,153,34,.08);border:1px solid rgba(210,153,34,.3);border-radius:10px;padding:14px 18px;color:#d9b36a;font-size:13.5px;text-align:left}
+  @media(max-width:640px){h1{font-size:30px}header{padding:64px 0 40px}}
+</style>
+</head>
+<body>
+<nav><div class="wrap nav-inner">
+  <div class="brand"><span class="dot"></span> 电商运营自动化 · 项目作品集</div>
+  <div>
+    <a href="#brief">概览</a>
+    <a href="#projects">项目</a>
+    <a href="#skills">技能</a>
+    <a href="#arch">架构</a>
+    <a href="#plan">路线</a>
+  </div>
+</div></nav>
+
+<header class="wrap">
+  <span class="kicker">SOFTWARE ENGINEERING · PORTFOLIO</span>
+  <h1>让电商运营<span class="grad">更自动化</span>的软件工程实践</h1>
+  <p class="sub">从数据采集、售后工单、数据分析到 AI 自动化规划——一套围绕电商运营场景，持续沉淀、可复用、可落地的系统化工程能力。</p>
+  <div class="ctas">
+    <a class="btn primary" href="demo-plan.html">查看在线 Demo →</a>
+    <a class="btn ghost" href="#projects">浏览项目</a>
+  </div>
+</header>
+
+<section id="brief" class="wrap">
+  <h2><span class="num">01</span>工作概览</h2>
+  <p class="lead">围绕电商运营的一线痛点，独立完成了从架构设计、工程落地到持续维护的闭环。</p>
+  <div class="stats">
+    <div class="stat"><b>4+</b><span>核心项目 / 能力域</span></div>
+    <div class="stat"><b>3</b><span>主流开发语言栈</span></div>
+    <div class="stat"><b>多平台</b><span>覆盖主流电商/IM 生态</span></div>
+    <div class="stat"><b>自动化</b><span>数据、预警、归档全链路</span></div>
+  </div>
+</section>
+
+<section id="projects" class="wrap">
+  <h2><span class="num">02</span>代表项目</h2>
+  <div class="grid">
+
+    <div class="card">
+      <div class="head"><h3>电商运营自动化工作台</h3><span class="badge alt">? 在线 Demo</span></div>
+      <div class="pos">核心主角 · 售后 + 客服 + 店铺运营一体化</div>
+      <div class="desc">一个面向多店铺电商运营的统一工作台，聚合数据看板、售后工单、问题分析、评分预警与客服会话采集。模块化、可插拔、角色权限清晰。</div>
+      <div class="tags">
+        <span class="tag">Node.js</span><span class="tag">REST API</span><span class="tag">数据看板</span>
+        <span class="tag">售后工单</span><span class="tag">预警体系</span><span class="tag">多店隔离</span>
+      </div>
+      <div class="foot"><a href="demo-plan.html">查看架构演示 →</a></div>
+    </div>
+
+    <div class="card">
+      <div class="head"><h3>电商 AI 自动化全景图</h3><span class="badge">产品设计</span></div>
+      <div class="pos">从选品、素材、上架、客服到售后的全链路规划</div>
+      <div class="desc">系统化拆解电商 AI 自动化能力边界：统一底座 + 七大专区模块 + 数据闭环，并给出分阶段落地节奏，是产品思维与架构规划的集中体现。</div>
+      <div class="tags">
+        <span class="tag">架构规划</span><span class="tag">模块化</span><span class="tag">数据闭环</span><span class="tag">分阶段落地</span>
+      </div>
+      <div class="foot"><a href="demo-plan.html">查看全景图 →</a></div>
+    </div>
+
+    <div class="card">
+      <div class="head"><h3>聊天记录采集与分析</h3><span class="badge alt">工程能力</span></div>
+      <div class="pos">Python 自动化 + 数据建模 + 预警</div>
+      <div class="desc">面向自有账号的聊天/会话数据归档系统：自动化采集、三层去重、按账号隔离存储、关键词预警，以及 AI 分析预留的可降级设计。</div>
+      <div class="tags">
+        <span class="tag">Python</span><span class="tag">MySQL</span><span class="tag">数据去重</span>
+        <span class="tag">实时监听</span><span class="tag">关键词预警</span>
+      </div>
+      <div class="foot"><span style="color:var(--muted);font-size:13px">内部数据，界外展示</span></div>
+    </div>
+
+    <div class="card">
+      <div class="head"><h3>通用工具函数库 skills</h3><span class="badge">工程基础</span></div>
+      <div class="pos">从业务中抽离的可复用基础设施</div>
+      <div class="desc">把项目中反复使用的工具沉淀为跨项目通用库：时间/金额处理、枚举归一、限流冷却、随机延迟、Cookie 存储、JWT 鉴权、密码哈希、数据去重等。</div>
+      <div class="tags">
+        <span class="tag">Node.js</span><span class="tag">Python</span><span class="tag">零依赖</span>
+        <span class="tag">抽离沉淀</span><span class="tag">INDEX 登记</span>
+      </div>
+      <div class="foot"><span style="color:var(--muted);font-size:13px">代码复用 · 可维护性</span></div>
+    </div>
+
+  </div>
+</section>
+
+<section id="skills" class="wrap">
+  <h2><span class="num">03</span>技术栈</h2>
+  <p class="lead">务实选型，注重落地与可维护。</p>
+  <div class="skill-row">
+    <span class="skill-chip"><b>后端</b> · Node.js / Express · Python</span>
+    <span class="skill-chip"><b>前端</b> · 原生 HTML/CSS/JS · 响应式单页</span>
+    <span class="skill-chip"><b>存储</b> · MySQL · JSON 持久化</span>
+    <span class="skill-chip"><b>自动化</b> · Playwright · 浏览器自动化</span>
+    <span class="skill-chip"><b>工程</b> · Git · 私有归档 · 定时任务 · 环境变量注入</span>
+  </div>
+</section>
+
+<section id="arch" class="wrap">
+  <h2><span class="num">04</span>架构思路</h2>
+  <p class="lead">统一的「底座 + 能力 + 闭环」分层设计，让模块可独立演进。</p>
+  <div class="arch">
+<svg viewBox="0 0 960 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="分层架构示意">
+  <!-- base -->
+  <text x="40" y="36" fill="#8b949e" font-size="13">统一底座 (Foundation)</text>
+  <g fill="#161b22" stroke="#2d333b">
+    <rect x="40" y="48" width="200" height="62" rx="10" stroke="#2f81f7"/>
+    <rect x="260" y="48" width="200" height="62" rx="10" stroke="#2f81f7"/>
+    <rect x="480" y="48" width="200" height="62" rx="10" stroke="#2f81f7"/>
+    <rect x="700" y="48" width="220" height="62" rx="10" stroke="#2f81f7"/>
+  </g>
+  <g fill="#e6edf3" font-size="13" text-anchor="middle">
+    <text x="140" y="76">权限体系</text><text x="140" y="94" fill="#8b949e" font-size="11">多角色 · 数据隔离</text>
+    <text x="360" y="76">消息预警</text><text x="360" y="94" fill="#8b949e" font-size="11">规则 · 实时通知</text>
+    <text x="580" y="76">任务引擎</text><text x="580" y="94" fill="#8b949e" font-size="11">定时 · 自动化</text>
+    <text x="810" y="76">数据通道</text><text x="810" y="94" fill="#8b949e" font-size="11">多种接入方式</text>
+  </g>
+  <!-- arrow down -->
+  <g stroke="#2d333b" stroke-width="2">
+    <line x1="480" y1="114" x2="480" y2="144"/>
+  </g>
+  <text x="492" y="136" fill="#8b949e" font-size="12">能力模块</text>
+  <!-- modules -->
+  <g fill="#161b22" stroke="#3fb950">
+    <rect x="40" y="150" width="205" height="88" rx="10"/>
+    <rect x="265" y="150" width="205" height="88" rx="10"/>
+    <rect x="490" y="150" width="205" height="88" rx="10"/>
+    <rect x="715" y="150" width="205" height="88" rx="10"/>
+  </g>
+  <g fill="#e6edf3" font-size="13" text-anchor="middle">
+    <text x="142" y="180">售后智能分析</text><text x="142" y="200" fill="#8b949e" font-size="11">工单归集 · 分类 · 复盘</text>
+    <text x="367" y="180">数据可视化</text><text x="367" y="200" fill="#8b949e" font-size="11">看板 · 评分 · 风险</text>
+    <text x="592" y="180">自动采集</text><text x="592" y="200" fill="#8b949e" font-size="11">多平台 · 增量同步</text>
+    <text x="817" y="180">智能客服/运营</text><text x="817" y="200" fill="#8b949e" font-size="11">选品 · 上架 · 应答</text>
+  </g>
+  <!-- feedback loop -->
+  <g fill="none" stroke="#3fb950" stroke-width="2" stroke-dasharray="6 4">
+    <path d="M955 150 q22 40 0 80" opacity=".7"/>
+  </g>
+  <text x="90" y="266" fill="#8b949e" font-size="12">数据处理</text>
+  <g fill="#161b22" stroke="#d29922">
+    <rect x="40" y="280" width="205" height="80" rx="10"/>
+    <rect x="265" y="280" width="640" height="80" rx="10"/>
+  </g>
+  <g fill="#e6edf3" font-size="13">
+    <text x="142" y="318" text-anchor="middle">采集 / 归档 / 导出</text>
+    <text x="585" y="308" text-anchor="middle">数据闭环</text>
+    <text x="585" y="334" fill="#8b949e" font-size="12" text-anchor="middle">售后痛点 / 用户诉求 → 反向驱动选品与运营策略</text>
+  </g>
+</svg>
+  </div>
+</section>
+
+<section id="plan" class="wrap">
+  <h2><span class="num">05</span>落地方式</h2>
+  <p class="lead">把工程能力沉淀成可长期演进的工作流。</p>
+  <ul class="tl">
+    <li><span class="n">STEP 01</span><div class="t">规划与架构</div><div class="d">拆解业务诉求，设计分层模块与数据闭环，形成落地方案。</div></li>
+    <li><span class="n">STEP 02</span><div class="t">工程落地</div><div class="d">分模块实现，注重边界清晰与低耦合，核心配置一律环境变量注入。</div></li>
+    <li><span class="n">STEP 03</span><div class="t">通用沉淀</div><div class="d">将可复用能力抽离为通用库，登记索引，供后续项目直接复用。</div></li>
+    <li><span class="n">STEP 04</span><div class="t">自动化归档</div><div class="d">周期性扫描改动、自动总结复盘并归档，让工作过程可追溯、可沉淀。</div></li>
+  </ul>
+</section>
+
+<footer class="wrap">
+  <div class="note">本作品集仅用于能力展示，内容均已脱敏，不包含任何真实业务数据、账号、凭证或敏感配置。</div>
+  <div style="margin-top:16px">© 2026 · 电商运营自动化作品集 · GitHub Pages 展示</div>
+</footer>
+</body>
+</html>
