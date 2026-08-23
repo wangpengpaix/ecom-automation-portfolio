@@ -58,14 +58,14 @@
 <section class="hero wrap">
   <span class="kicker">WORK LOG</span>
   <h1>每天做了什么，都在这里<span class="grad">。</span></h1>
-  <p class="sub">一档持续更新的工作日记：按天记录项目进展、功能实现与工程改进，均已脱敏。每天 19 点由自动化任务自动归档追加。</p>
+  <p class="sub">一档持续更新的工作日记：按天记录项目进展、功能实现与工程改进，均已脱敏，含早期历史补录。每天 19 点由自动化任务自动归档追加。</p>
   <div class="stats">
-    <div class="stat"><b>2</b><span>记录天数</span></div>
-    <div class="stat"><b>6</b><span>累计条目</span></div>
-    <div class="stat"><b>2026-08-21</b><span>起始日期</span></div>
+    <div class="stat"><b>9</b><span>记录天数</span></div>
+    <div class="stat"><b>16</b><span>累计条目</span></div>
+    <div class="stat"><b>2026-08-14</b><span>起始日期</span></div>
     <div class="stat"><b>每日更新</b><span>更新机制</span></div>
   </div>
-  <div class="legend">滚动查看完整工作日志 · 旧条目在上方时间线下按日排列</div>
+  <div class="legend">滚动查看完整工作日志（含 08-14 起的早期历史补录）· 旧条目在上方时间线下按日排列</div>
 </section>
 
 <section class="wrap">
@@ -103,6 +103,88 @@
         <div class="item">
           <h4>建立 GitHub 代码沉淀机制</h4>
           <p>新建私有双仓库用于业务归档与通用函数库、新增「项目复盘归档」技能、配置每日自动归档；附带预警规则面板改为可折叠 UI。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="date">2026-08-20 <small>2 条</small></div>
+      <div class="items">
+        <div class="item">
+          <h4>客服会话采集链路打通 + 登录态续期</h4>
+          <p>梳理客服数据采集全链路（自动抓取→入库→工作台调取）；支持手动导入；复用已保存登录态自动续期、免人工重登；评估并控制 RPA 采集的风控风险。</p>
+        </div>
+        <div class="item">
+          <h4>启动微信聊天记录采集器项目</h4>
+          <p>立项个人微信聊天记录采集：UI 自动化驱动已登录客户端、历史数据导入、MySQL 三层去重存储，按自有会话归档管理。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="date">2026-08-19 <small>2 条</small></div>
+      <div class="items">
+        <div class="item">
+          <h4>多平台客服会话批量采集</h4>
+          <p>完成淘宝 / 1688 等店铺客服会话采集：批量执行、增量按水位线跳采避免重复、店铺改名后数据归并。</p>
+        </div>
+        <div class="item">
+          <h4>抖店飞鸽客服会话采集落地</h4>
+          <p>实现抖店飞鸽客服会话直连采集，支持查看完整对话，并纳入工作台统一入口。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="date">2026-08-18 <small>1 条</small></div>
+      <div class="items">
+        <div class="item">
+          <h4>客服会话采集优化 + 风控加固</h4>
+          <p>优化客服会话采集页与「分类统计」视图；对多平台 RPA 自动化叠加风控与安全措施。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="date">2026-08-17 <small>1 条</small></div>
+      <div class="items">
+        <div class="item">
+          <h4>商品监控 + 售后权限精细化</h4>
+          <p>新增商品 DSR 监控并同步多家店铺数据；实现店铺与运营人员绑定、售后按角色授权；售后工单支持复用登录态免重复登录处理。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="date">2026-08-16 <small>1 条</small></div>
+      <div class="items">
+        <div class="item">
+          <h4>多平台店铺接入与平台隔离</h4>
+          <p>新增并验证淘宝、拼多多店铺登录与数据展示；严格区分平台数据避免混淆；售后工单系统 UI 增加分页与多项选择。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="date">2026-08-15 <small>2 条</small></div>
+      <div class="items">
+        <div class="item">
+          <h4>售后角色权限 + 有头/无头模式</h4>
+          <p>制定项目计划与进度管理；实现子账号按店铺的售后权限授权；系统设置增加有头 / 无头模式切换。</p>
+        </div>
+        <div class="item">
+          <h4>售后问题分析中心</h4>
+          <p>建设售后工单分类与「问题分析中心」，推进售后分析闭环，并据反馈持续优化分析维度。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="date">2026-08-14 <small>1 条</small></div>
+      <div class="items">
+        <div class="item">
+          <h4>售后模块全栈化 + 店铺页面</h4>
+          <p>将售后模块升级为前后端联动的全栈应用：数据看板、导入与 ERP 数据来源；新增店铺信息页与多店铺统一管理；生成工作台 LOGO。</p>
         </div>
       </div>
     </div>
