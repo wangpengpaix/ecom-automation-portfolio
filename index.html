@@ -81,7 +81,7 @@
   <div>
     <a href="worklog.html">工作日志</a>
     <a href="#brief">概览</a>
-    <a href="#projects">项目</a>
+    <a href="#projects">能力域</a>
     <a href="#skills">技能</a>
     <a href="#arch">架构</a>
     <a href="#updates">更新</a>
@@ -110,50 +110,62 @@
 </section>
 
 <section id="projects" class="wrap">
-  <h2><span class="num">02</span>代表项目</h2>
+  <h2><span class="num">02</span>能力域</h2>
+  <p class="lead">按业务域沉淀能力（同一系统不同环节分别归域，不以项目/目录命名）。</p>
   <div class="grid">
 
     <div class="card">
-      <div class="head"><h3>电商运营自动化工作台</h3><span class="badge alt">? 在线 Demo</span></div>
-      <div class="pos">核心主角 · 售后 + 客服 + 店铺运营一体化</div>
-      <div class="desc">一个面向多店铺电商运营的统一工作台，聚合数据看板、售后工单、问题分析、评分预警与客服会话采集。模块化、可插拔、角色权限清晰。</div>
+      <div class="head"><h3>01 · 店铺与经营数据</h3><span class="badge">M5 运行</span></div>
+      <div class="pos">多平台店铺管理 · 经营概览 · DSR 监控</div>
+      <div class="desc">覆盖主流电商平台的店铺管理、登录态/Cookie 运维、经营数据驾驶舱与评分监控，反风控采集能力按店铺隔离。</div>
       <div class="tags">
-        <span class="tag">Node.js</span><span class="tag">REST API</span><span class="tag">数据看板</span>
-        <span class="tag">售后工单</span><span class="tag">预警体系</span><span class="tag">多店隔离</span>
+        <span class="tag">Playwright</span><span class="tag">多平台</span><span class="tag">驾驶舱</span><span class="tag">按店铺隔离</span>
       </div>
-      <div class="foot"><a href="demo-plan.html">查看架构演示 →</a></div>
     </div>
 
     <div class="card">
-      <div class="head"><h3>电商 AI 自动化全景图</h3><span class="badge">产品设计</span></div>
-      <div class="pos">从选品、素材、上架、客服到售后的全链路规划</div>
-      <div class="desc">系统化拆解电商 AI 自动化能力边界：统一底座 + 七大专区模块 + 数据闭环，并给出分阶段落地节奏，是产品思维与架构规划的集中体现。</div>
+      <div class="head"><h3>02 · 售后分析与归因</h3><span class="badge">M5 运行</span></div>
+      <div class="pos">售后工单 · SKU 归因 · 问题分析 · 工单×会话关联</div>
+      <div class="desc">售后工单管理 + 多维归因（品类/归属/SLA/严重度）+ 分析中心；将售后工单与客服会话自动关联，定位到具体商品与买家原因。</div>
       <div class="tags">
-        <span class="tag">架构规划</span><span class="tag">模块化</span><span class="tag">数据闭环</span><span class="tag">分阶段落地</span>
+        <span class="tag">规则引擎</span><span class="tag">工单×会话</span><span class="tag">一键分析</span><span class="tag">SLA 预警</span>
       </div>
-      <div class="foot"><a href="demo-plan.html">查看全景图 →</a></div>
     </div>
 
     <div class="card">
-      <div class="head"><h3>聊天记录采集与分析</h3><span class="badge alt">工程能力</span></div>
-      <div class="pos">Python 自动化 + 数据建模 + AI 归纳 + 预警</div>
-      <div class="desc">面向自有聊天会话的数据归档系统：自动化采集、三层去重、按会话隔离存储、关键词预警，并落地 AI 问题归纳——由本地模型自动完成会话分类/情绪判定/问题概述/处理方案，模型不可用时自动降级、不阻塞采集。</div>
+      <div class="head"><h3>03 · 客服会话采集</h3><span class="badge">M4 联调</span></div>
+      <div class="pos">旺旺 / 千牛 / 飞鸽 · 会话入库与导出</div>
+      <div class="desc">跨平台客服会话的自动化采集、入库、查询与导出，与会话统计联动，为售后归因提供会话证据。</div>
       <div class="tags">
-        <span class="tag">Python</span><span class="tag">MySQL</span><span class="tag">数据去重</span>
-        <span class="tag">实时监听</span><span class="tag">关键词预警</span><span class="tag">AI 归纳</span>
+        <span class="tag">多通道</span><span class="tag">会话入库</span><span class="tag">导出</span><span class="tag">增量水位线</span>
       </div>
-      <div class="foot"><span style="color:var(--muted);font-size:13px">内部数据，界外展示</span></div>
     </div>
 
     <div class="card">
-      <div class="head"><h3>通用工具函数库 skills</h3><span class="badge">工程基础</span></div>
-      <div class="pos">从业务中抽离的可复用基础设施</div>
-      <div class="desc">把项目中反复使用的工具沉淀为跨项目通用库：时间/金额处理、枚举归一、限流冷却、随机延迟、Cookie 存储、JWT 鉴权、密码哈希、数据去重等。</div>
+      <div class="head"><h3>04 · 微信与 IM 自动化</h3><span class="badge">M5 运行</span></div>
+      <div class="pos">微信采集 · 历史导入 · AI 归纳 · 关键词预警 · 站内通知</div>
+      <div class="desc">面向自有聊天会话的采集与归档：多账号增量采集、历史数据幂等补录、关键词实时预警，AI 归纳结果可降级不阻塞采集。</div>
       <div class="tags">
-        <span class="tag">Node.js</span><span class="tag">Python</span><span class="tag">零依赖</span>
-        <span class="tag">抽离沉淀</span><span class="tag">INDEX 登记</span>
+        <span class="tag">实时监听</span><span class="tag">幂等去重</span><span class="tag">关键词预警</span><span class="tag">通知</span>
       </div>
-      <div class="foot"><span style="color:var(--muted);font-size:13px">代码复用 · 可维护性</span></div>
+    </div>
+
+    <div class="card">
+      <div class="head"><h3>05 · AI 与大模型能力</h3><span class="badge">M5 运行</span></div>
+      <div class="pos">本地模型 · 意图/情感/摘要/方案 · 归因兜底</div>
+      <div class="desc">接本地大模型完成会话意图/情感/摘要/处理方案归纳；在规则置信不足时为售后归因提供 LLM 兜底，无模型时自动降级。</div>
+      <div class="tags">
+        <span class="tag">Ollama</span><span class="tag">本地推理</span><span class="tag">降级</span><span class="tag">规则+模型</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="head"><h3>06 · 工程与数据治理</h3><span class="badge">M6 沉淀</span></div>
+      <div class="pos">数据去重 · skills 通用库 · 鉴权限流 · 自动归档</div>
+      <div class="desc">三层去重、跨项目通用函数库、JWT/限流等工程基础设施，以及按业务域自动归档到私有仓库与展示站的机制。</div>
+      <div class="tags">
+        <span class="tag">skills 库</span><span class="tag">三层去重</span><span class="tag">环境变量注入</span><span class="tag">定时归档</span>
+      </div>
     </div>
 
   </div>
