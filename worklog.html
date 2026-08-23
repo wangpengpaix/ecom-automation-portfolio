@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>工作日志 · 电商运营自动化实践</title>
+<style>
+  :root{
+    --bg:#0d1117; --bg2:#10141c; --card:#1c2129; --line:#2d333b;
+    --text:#e6edf3; --muted:#8b949e; --accent:#2f81f7; --accent2:#3fb950;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:linear-gradient(160deg,#0d1117,#10141c);color:var(--text);line-height:1.75;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:820px;margin:0 auto;padding:0 24px}
+  header{position:sticky;top:0;z-index:20;backdrop-filter:blur(10px);background:rgba(13,17,23,.82);border-bottom:1px solid var(--line)}
+  .bar{max-width:1080px;margin:0 auto;padding:16px 24px;display:flex;justify-content:space-between;align-items:center}
+  .brand{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:600;color:var(--text);text-decoration:none}
+  .brand .dot{width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent)}
+  nav a{color:var(--muted);text-decoration:none;font-size:14px;margin-left:22px;transition:color .2s}
+  nav a:hover,nav a.active{color:var(--text)}
+  .hero{padding:74px 0 40px;text-align:center}
+  .kicker{display:inline-block;font-size:13px;color:var(--accent2);border:1px solid rgba(63,185,80,.4);padding:4px 14px;border-radius:999px;letter-spacing:2px;margin-bottom:22px;background:rgba(63,185,80,.08)}
+  h1{font-size:40px;font-weight:700;letter-spacing:.5px}
+  h1 .grad{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .sub{color:var(--muted);max-width:640px;margin:18px auto 0;font-size:16px}
+  .stats{display:flex;justify-content:center;gap:34px;margin:34px 0 6px;flex-wrap:wrap}
+  .stat b{display:block;font-size:26px;color:var(--accent)}
+  .stat span{color:var(--muted);font-size:12.5px;letter-spacing:.5px}
+  .legend{text-align:center;color:#6e7681;font-size:12px;margin:6px 0 40px}
+  .timeline{position:relative;margin:0 0 20px;padding-left:34px}
+  .timeline::before{content:"";position:absolute;left:10px;top:6px;bottom:6px;width:2px;background:var(--line)}
+  .day{position:relative;margin-bottom:36px}
+  .day::before{content:"";position:absolute;left:-25px;top:3px;width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(47,129,247,.15)}
+  .day .date{font-family:ui-monospace,monospace;font-size:18px;font-weight:700;color:var(--text);margin-bottom:10px}
+  .day .date small{color:var(--muted);font-weight:400;font-size:12px;margin-left:10px;letter-spacing:.5px}
+  .items{display:flex;flex-direction:column;gap:12px}
+  .item{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:10px;padding:14px 18px;transition:transform .15s,border-color .2s}
+  .item:hover{transform:translateY(-2px);border-color:var(--accent)}
+  .item h4{font-size:15.5px;margin-bottom:5px}
+  .item p{color:var(--muted);font-size:14px}
+  footer{margin-top:60px;border-top:1px solid var(--line);padding:28px 0 44px;color:var(--muted);font-size:13px;text-align:center}
+  footer a{color:var(--accent);text-decoration:none}
+  @media(max-width:640px){h1{font-size:30px}.stats{gap:22px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="bar">
+    <a class="brand" href="index.html"><span class="dot"></span>电商运营自动化 · 实践手记</a>
+    <nav>
+      <a href="index.html">项目总览</a>
+      <a href="worklog.html" class="active">工作日志</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero wrap">
+  <span class="kicker">WORK LOG</span>
+  <h1>每天做了什么，都在这里<span class="grad">。</span></h1>
+  <p class="sub">一档持续更新的工作日记：按天记录项目进展、功能实现与工程改进，均已脱敏。每天 19 点由自动化任务自动归档追加。</p>
+  <div class="stats">
+    <div class="stat"><b>2</b><span>记录天数</span></div>
+    <div class="stat"><b>6</b><span>累计条目</span></div>
+    <div class="stat"><b>2026-08-21</b><span>起始日期</span></div>
+    <div class="stat"><b>每日更新</b><span>更新机制</span></div>
+  </div>
+  <div class="legend">滚动查看完整工作日志 · 旧条目在上方时间线下按日排列</div>
+</section>
+
+<section class="wrap">
+  <div class="timeline">
+
+    <div class="day">
+      <div class="date">2026-08-22 <small>1 条</small></div>
+      <div class="items">
+        <div class="item">
+          <h4>微信历史数据完整导入 + 采集自动化</h4>
+          <p>MemoTrace/WeChatMsg CSV 批量补全历史记录（幂等去重、来源可区分）；采集与 AI 归纳支持定时自动化、无人值守并展示运行状态；工作台新增单会话 AI 小结、长文本展开、订单号一键反查、按条件导出 CSV。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="date">2026-08-21 <small>5 条</small></div>
+      <div class="items">
+        <div class="item">
+          <h4>微信 AI 问题归纳 + 预警模型底座</h4>
+          <p>本地 AI 模型对客服会话自动完成分类 / 情绪 / 概述 / 处理方案；新增预警通知表与工作台铃铛，为消息推送预留接口；同步加固每日自动归档机制（补配远程仓库、强制稳妥的 TLS 后端）。</p>
+        </div>
+        <div class="item">
+          <h4>微信订单线索 + 异常数据过滤</h4>
+          <p>识别客户主动上报的平台 / 私单单号（可复制 + 按单号反查）；四层异常数据过滤防止存储被无效内容撑满；AI 分析超时自动重试。</p>
+        </div>
+        <div class="item">
+          <h4>微信采集前端体验完善</h4>
+          <p>新增订单号反查会话入口、AI 归纳改为真实状态轮询、数据相对"新鲜度"标签并标黄提醒久未采集、顶部预警通知铃铛入口。</p>
+        </div>
+        <div class="item">
+          <h4>建立公开成果展示站</h4>
+          <p>脱敏公开展示站上线（GitHub Pages 部署），与私有业务仓库隔离，匿名化并去除敏感信息，供对外浏览工作成果。</p>
+        </div>
+        <div class="item">
+          <h4>建立 GitHub 代码沉淀机制</h4>
+          <p>新建私有双仓库用于业务归档与通用函数库、新增「项目复盘归档」技能、配置每日自动归档；附带预警规则面板改为可折叠 UI。</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <p>电商运营自动化 · 工作日志（脱敏版）｜ <a href="index.html">查看项目总览 →</a></p>
+</footer>
+</body>
+</html>
