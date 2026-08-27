@@ -60,8 +60,8 @@
   <h1>每天做了什么，都在这里<span class="grad">。</span></h1>
   <p class="sub">一档持续更新的工作日记：按天记录项目进展、功能实现与工程改进，均已脱敏，含早期历史补录。每天 19 点由自动化任务自动归档追加。</p>
   <div class="stats">
-    <div class="stat"><b>12</b><span>记录天数</span></div>
-    <div class="stat"><b>20</b><span>累计条目</span></div>
+    <div class="stat"><b>13</b><span>记录天数</span></div>
+    <div class="stat"><b>23</b><span>累计条目</span></div>
     <div class="stat"><b>2026-08-14</b><span>起始日期</span></div>
     <div class="stat"><b>每日更新</b><span>更新机制</span></div>
   </div>
@@ -70,6 +70,24 @@
 
 <section class="wrap">
   <div class="timeline">
+
+    <div class="day">
+      <div class="date">2026-08-26 <small>3 条</small></div>
+      <div class="items">
+        <div class="item">
+          <h4>[售后分析与归因] 聚水潭售后深度归因闭环落地</h4>
+          <p>接入聚水潭售后数据后补齐归因闭环：批量落库售后工单、按单号确定性关联历史客服会话、构建售后原因分布与会话痛点呼应的深度归因分析，并在工作台支持按店铺切换、编辑问题归属与退款原因。</p>
+        </div>
+        <div class="item">
+          <h4>[客服会话采集] 1688 会话采集健壮性 + 订单号精确提取</h4>
+          <p>1688 客服会话列表改为轮询等待加载、自动刷新重试并提升滚动回溯上限，避免底部买家会话漏采；从售后接口结构化响应精确提取订单号，用于工单与会话的确定性匹配并回填关联字段。</p>
+        </div>
+        <div class="item">
+          <h4>[AI与大模型能力 / 工程与数据治理] 通用能力沉淀 + 数据安全治理</h4>
+          <p>将订单号递归提取、关键词归因分类、日期切窗分批拉数等收敛为可复用函数库；新增跨平台统一知识库设计方案；并完成一批含真实单号的一次性调试脚本的脱敏清理与仓库治理。</p>
+        </div>
+      </div>
+    </div>
 
     <div class="day">
       <div class="date">2026-08-25 <small>1 条</small></div>
