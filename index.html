@@ -128,7 +128,7 @@
       <div class="pos">售后工单 · SKU 归因 · 一键分析流水线 · 工单×会话关联</div>
       <div class="desc">售后工单管理 + 多维归因（品类/归属/SLA/严重度）+ 一键分析流水线；售后工单与客服会话自动关联，规则引擎 + 学习知识库 + 本地模型兜底混合判断，定位到具体商品与买家原因。</div>
       <div class="tags">
-        <span class="tag">一键分析流水线</span><span class="tag">工单×会话</span><span class="tag">知识库学习</span><span class="tag">模型兜底</span><span class="tag">SLA 预警</span><span class="tag">官方报表导入</span>
+        <span class="tag">一键分析流水线</span><span class="tag">工单×会话</span><span class="tag">多证据加权关联</span><span class="tag">知识库学习</span><span class="tag">模型兜底</span><span class="tag">SLA 预警</span><span class="tag">官方报表导入</span>
       </div>
     </div>
 
@@ -242,6 +242,7 @@
   <h2><span class="num">05</span>近期更新</h2>
   <p class="lead">持续演进，沉淀自动化能力。</p>
   <ul class="tl">
+    <li><span class="n">2026-08-29</span><div class="t">售后链路字段口径收敛 + 多证据加权关联</div><div class="d">售后链路「字段口径 + 采集入口」系统性收敛：平台级字段白名单 + 官方导出弹窗强制勾选、reason 去兜底并新增平台原值审计字段、工单×会话关联升级为多证据加权打分与分平台差异化时间窗口；售后自动化升级为系统级定时任务，并沉淀通用 mtop 调用函数与售后知识库。</div></li>
     <li><span class="n">2026-08-28</span><div class="t">1688 售后采集切换官方报表导入 + 自动周报</div><div class="d">1688 售后采集从 RPA 详情页爬取切换为官方报表导入（零成本、零风控）：无第三方依赖解析报表文件、按 19 列字段语义映射并入工单且不覆盖历史；新增售后自动周报编排与企微群推送、报告归档面板；旺旺/飞鸽采集完成即整窗标记已采，覆盖日历可区分「无数据」与「未采集」。</div></li>
     <li><span class="n">2026-08-26</span><div class="t">聚水潭售后归因闭环 + 1688 采集健壮性</div><div class="d">接入聚水潭售后数据后补齐归因闭环：售后工单批量落库、按单号确定性关联客服会话、深度归因分析与问题归属编辑；1688 会话采集强化健壮性并精确提取订单号；将订单号递归提取、关键词归因、日期切窗等通用能力沉淀进复用库。</div></li>
     <li><span class="n">2026-08-23</span><div class="t">工程级别盘点 + 预警误命中修复</div><div class="d">对整套工作台做工程规模与完成度盘点（约 1.9 万行源码 / 120+ 接口），形成"中小型内部业务系统"定位与对外口径；修复关键词预警中纯数字词含于长数字串等的子串误命中，改为带词边界匹配并回填。</div></li>

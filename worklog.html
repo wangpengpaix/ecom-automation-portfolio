@@ -60,8 +60,8 @@
   <h1>每天做了什么，都在这里<span class="grad">。</span></h1>
   <p class="sub">一档持续更新的工作日记：按天记录项目进展、功能实现与工程改进，均已脱敏，含早期历史补录。每天 19 点由自动化任务自动归档追加。</p>
   <div class="stats">
-    <div class="stat"><b>15</b><span>记录天数</span></div>
-    <div class="stat"><b>27</b><span>累计条目</span></div>
+    <div class="stat"><b>16</b><span>记录天数</span></div>
+    <div class="stat"><b>30</b><span>累计条目</span></div>
     <div class="stat"><b>2026-08-14</b><span>起始日期</span></div>
     <div class="stat"><b>每日更新</b><span>更新机制</span></div>
   </div>
@@ -70,6 +70,24 @@
 
 <section class="wrap">
   <div class="timeline">
+
+    <div class="day">
+      <div class="date">2026-08-29 <small>3 条</small></div>
+      <div class="items">
+        <div class="item">
+          <h4>[售后分析与归因] 售后链路「字段口径 + 采集入口」系统性收敛</h4>
+          <p>平台级字段白名单 + 官方导出弹窗按白名单强制勾选（真机修复"识别 0 字段"）、导入侧表头缺列显式告警；去除 reason 备注兜底、新增平台原值审计字段并全库回填；工单×会话关联升级为多证据加权打分与分平台差异化时间窗口；售后自动化升级为系统级定时任务（每日入库 / 周五周报）。</p>
+        </div>
+        <div class="item">
+          <h4>[客服会话采集 / 店铺与经营数据] 订单号确定性回填 + 同步间隔可配置</h4>
+          <p>抖店飞鸽与 1688 旺旺客服会话订单号确定性抽取并回填，提升工单×会话匹配率；自动同步间隔改为系统设置可配置，售后定时任务接入系统设置面板。</p>
+        </div>
+        <div class="item">
+          <h4>[工程与数据治理] 通用 mtop 签名调用函数沉淀 + 售后知识库</h4>
+          <p>抽取通用 mtop 签名调用模块（超时保护 + token 过期重签重试）与日期工具增强进复用库并登记索引；新增售后「采集→导入→匹配」链路知识库与当日复盘文档；批量脚本内部路径脱敏。</p>
+        </div>
+      </div>
+    </div>
 
     <div class="day">
       <div class="date">2026-08-28 <small>3 条</small></div>
