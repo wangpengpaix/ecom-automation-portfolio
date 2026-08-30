@@ -161,10 +161,10 @@
 
     <div class="card">
       <div class="head"><h3>06 · 工程与数据治理</h3><span class="badge">M6 沉淀</span></div>
-      <div class="pos">数据去重 · skills 通用库 · 鉴权限流 · 自动归档</div>
-      <div class="desc">三层去重、跨项目通用函数库、JWT/限流等工程基础设施，以及按业务域自动归档到私有仓库与展示站的机制。</div>
+      <div class="pos">数据去重 · skills 通用库 · 权限隔离 · 鉴权限流 · 自动归档</div>
+      <div class="desc">三层去重、跨项目通用函数库、JWT/限流等工程基础设施，以及按业务域自动归档到私有仓库与展示站的机制；近期新增数据按运营隔离、凭据脱敏、配置原子写入与登录限流等安全治理。</div>
       <div class="tags">
-        <span class="tag">skills 库</span><span class="tag">三层去重</span><span class="tag">环境变量注入</span><span class="tag">定时归档</span>
+        <span class="tag">skills 库</span><span class="tag">三层去重</span><span class="tag">环境变量注入</span><span class="tag">定时归档</span><span class="tag">数据隔离</span><span class="tag">凭据脱敏</span><span class="tag">原子写入</span>
       </div>
     </div>
 
@@ -242,6 +242,7 @@
   <h2><span class="num">05</span>近期更新</h2>
   <p class="lead">持续演进，沉淀自动化能力。</p>
   <ul class="tl">
+    <li><span class="n">2026-08-30</span><div class="t">安全工作台「权限隔离 + 凭据脱敏 + 原子写入」系统性加固</div><div class="d">配置/状态 JSON 全部改为原子写入防中断损坏；登录失败限流 + 密码独立盐加密 + 会话密钥自动生成；客服会话等数据按运营负责店铺做权限隔离，店铺密码 / Cookie / 接口密钥一律不回传，报告接口鉴权、静态目录收敛；同步修复 1688 登录态跨域 Cookie 复用与聚水潭令牌续期链路。</div></li>
     <li><span class="n">2026-08-29</span><div class="t">售后链路字段口径收敛 + 多证据加权关联</div><div class="d">售后链路「字段口径 + 采集入口」系统性收敛：平台级字段白名单 + 官方导出弹窗强制勾选、reason 去兜底并新增平台原值审计字段、工单×会话关联升级为多证据加权打分与分平台差异化时间窗口；售后自动化升级为系统级定时任务，并沉淀通用 mtop 调用函数与售后知识库。</div></li>
     <li><span class="n">2026-08-28</span><div class="t">1688 售后采集切换官方报表导入 + 自动周报</div><div class="d">1688 售后采集从 RPA 详情页爬取切换为官方报表导入（零成本、零风控）：无第三方依赖解析报表文件、按 19 列字段语义映射并入工单且不覆盖历史；新增售后自动周报编排与企微群推送、报告归档面板；旺旺/飞鸽采集完成即整窗标记已采，覆盖日历可区分「无数据」与「未采集」。</div></li>
     <li><span class="n">2026-08-26</span><div class="t">聚水潭售后归因闭环 + 1688 采集健壮性</div><div class="d">接入聚水潭售后数据后补齐归因闭环：售后工单批量落库、按单号确定性关联客服会话、深度归因分析与问题归属编辑；1688 会话采集强化健壮性并精确提取订单号；将订单号递归提取、关键词归因、日期切窗等通用能力沉淀进复用库。</div></li>

@@ -60,8 +60,8 @@
   <h1>每天做了什么，都在这里<span class="grad">。</span></h1>
   <p class="sub">一档持续更新的工作日记：按天记录项目进展、功能实现与工程改进，均已脱敏，含早期历史补录。每天 19 点由自动化任务自动归档追加。</p>
   <div class="stats">
-    <div class="stat"><b>16</b><span>记录天数</span></div>
-    <div class="stat"><b>30</b><span>累计条目</span></div>
+    <div class="stat"><b>17</b><span>记录天数</span></div>
+    <div class="stat"><b>33</b><span>累计条目</span></div>
     <div class="stat"><b>2026-08-14</b><span>起始日期</span></div>
     <div class="stat"><b>每日更新</b><span>更新机制</span></div>
   </div>
@@ -70,6 +70,24 @@
 
 <section class="wrap">
   <div class="timeline">
+
+    <div class="day">
+      <div class="date">2026-08-30 <small>3 条</small></div>
+      <div class="items">
+        <div class="item">
+          <h4>[工程与数据治理] 安全工作台「权限隔离 + 凭据脱敏 + 原子写入」系统性加固</h4>
+          <p>全部配置/状态 JSON 改为原子写入防中断损坏；登录失败限流 + 密码独立盐加密 + 会话密钥自动生成；客服会话等数据按运营负责店铺做权限隔离；店铺密码 / Cookie / 接口密钥一律不回传，报告接口鉴权、静态目录收敛；定时采集与保活超时后主动关停残留浏览器防并发风控。</p>
+        </div>
+        <div class="item">
+          <h4>[店铺与经营数据 / 售后分析与归因] 1688 登录态跨域 Cookie 修复 + 聚水潭链路修正</h4>
+          <p>修复 1688 登录态跨域 Cookie 的保存与复用（补注入阿里公共域，告别反复要求登录）；聚水潭令牌续期链路修正并按有效期顺延；售后报告改为登录后鉴权读取。</p>
+        </div>
+        <div class="item">
+          <h4>[客服会话采集] 抖店飞鸽登录过期检测 + 会话数据权限隔离</h4>
+          <p>飞鸽登录过期与「采集成功」严格区分，不再误报污染覆盖日历；缺正文会话一次性补采；客服会话列表 / 消息 / 导出全部按运营负责店铺过滤，列表最小字段化，性能与隐私兼顾。</p>
+        </div>
+      </div>
+    </div>
 
     <div class="day">
       <div class="date">2026-08-29 <small>3 条</small></div>
