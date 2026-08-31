@@ -60,8 +60,8 @@
   <h1>每天做了什么，都在这里<span class="grad">。</span></h1>
   <p class="sub">一档持续更新的工作日记：按天记录项目进展、功能实现与工程改进，均已脱敏，含早期历史补录。每天 19 点由自动化任务自动归档追加。</p>
   <div class="stats">
-    <div class="stat"><b>17</b><span>记录天数</span></div>
-    <div class="stat"><b>37</b><span>累计条目</span></div>
+    <div class="stat"><b>18</b><span>记录天数</span></div>
+    <div class="stat"><b>41</b><span>累计条目</span></div>
     <div class="stat"><b>2026-08-14</b><span>起始日期</span></div>
     <div class="stat"><b>每日更新</b><span>更新机制</span></div>
   </div>
@@ -70,6 +70,28 @@
 
 <section class="wrap">
   <div class="timeline">
+
+    <div class="day">
+      <div class="date">2026-08-31 <small>4 条</small></div>
+      <div class="items">
+        <div class="item">
+          <h4>[客服会话采集 / 售后分析与归因] 淘宝会话改为「售后单驱动」确定性采集</h4>
+          <p>淘宝客服会话从遍历联系人改为「售后单驱动」：由售后详情页直达入口精准定位唯一买家会话，不再依赖昵称猜测；售后分析范围口径重构为三态判定，仅已完成退货退款进入商品分析，其余等待完结或排除。</p>
+        </div>
+        <div class="item">
+          <h4>[店铺与经营数据] 售后数据源边界纠正 + 多平台综合分析</h4>
+          <p>厘清售后数据源边界：聚水潭仅对本项目开放抖店/抖音售后单，淘宝/天猫/1688 统一走平台官方报表导出；完成多平台多店铺 30 天数据综合分析，并厘清「售后数据时效由订单完结周期决定」的分析口径。</p>
+        </div>
+        <div class="item">
+          <h4>[微信与IM自动化] 1688 旺旺采集改为「售后订单驱动 + 旺旺直达」</h4>
+          <p>1688 旺旺从遍历联系人列表改为售后详情页携带买家标识的直达链路定向采集，兼容双日期格式归一；防风控全局互斥、单店冷却加随机抖动、会话数上限约束。</p>
+        </div>
+        <div class="item">
+          <h4>[工程与数据治理] 本地交付验收固化 + Cookie 多域复用修复</h4>
+          <p>本地交付验收一键固化，覆盖回归、服务端/前端语法、本地数据可解析与启动/鉴权等服务级边界；修复 1688 登录态跨域 Cookie 的保存与注入（按 .1688.com / .alibaba.com 等多域合并注入），告别跨域登录页误判失效反复要求登录。</p>
+        </div>
+      </div>
+    </div>
 
     <div class="day">
       <div class="date">2026-08-30 <small>7 条</small></div>
