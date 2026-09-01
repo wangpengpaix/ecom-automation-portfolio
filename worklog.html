@@ -60,8 +60,8 @@
   <h1>每天做了什么，都在这里<span class="grad">。</span></h1>
   <p class="sub">一档持续更新的工作日记：按天记录项目进展、功能实现与工程改进，均已脱敏，含早期历史补录。每天 19 点由自动化任务自动归档追加。</p>
   <div class="stats">
-    <div class="stat"><b>18</b><span>记录天数</span></div>
-    <div class="stat"><b>41</b><span>累计条目</span></div>
+    <div class="stat"><b>19</b><span>记录天数</span></div>
+    <div class="stat"><b>44</b><span>累计条目</span></div>
     <div class="stat"><b>2026-08-14</b><span>起始日期</span></div>
     <div class="stat"><b>每日更新</b><span>更新机制</span></div>
   </div>
@@ -70,6 +70,24 @@
 
 <section class="wrap">
   <div class="timeline">
+
+    <div class="day">
+      <div class="date">2026-09-01 <small>3 条</small></div>
+      <div class="items">
+        <div class="item">
+          <h4>[售后分析与归因] 售后—会话关联升级为「确定性闭环」</h4>
+          <p>新增售后单→会话最终状态标记表，同一原订单复用确定性结果避免重复访问平台；会话按确定单号分段落库并带超时基准；补齐完结率统计接口，让「哪个退款对应了哪段买家对话」可精确回溯定位。</p>
+        </div>
+        <div class="item">
+          <h4>[客服会话采集] 淘宝会话采集升级「全量扫描 + 精准采集」</h4>
+          <p>从结构化会话记录同时提取订单号与售后单号（子订单优先），按售后单驱动精准采集对应会话并入库原始报文；工作台新增「淘宝·会话全量扫描」卡片与「精准采集所选单」入口。</p>
+        </div>
+        <div class="item">
+          <h4>[工程与数据治理] 采集互斥升级跨进程文件锁 + 店铺冷却持久化</h4>
+          <p>采集互斥从进程内布尔升级为跨进程文件锁，带陈旧锁自动回收，防止多进程并发高频访问同一店铺；店铺访问冷却水位持久化共享，统一遵守最小访问间隔；新增回归测试，并抽取通用跨进程文件锁函数沉淀进复用库。</p>
+        </div>
+      </div>
+    </div>
 
     <div class="day">
       <div class="date">2026-08-31 <small>4 条</small></div>
