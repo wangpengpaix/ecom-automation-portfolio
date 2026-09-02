@@ -60,8 +60,8 @@
   <h1>每天做了什么，都在这里<span class="grad">。</span></h1>
   <p class="sub">一档持续更新的工作日记：按天记录项目进展、功能实现与工程改进，均已脱敏，含早期历史补录。每天 19 点由自动化任务自动归档追加。</p>
   <div class="stats">
-    <div class="stat"><b>19</b><span>记录天数</span></div>
-    <div class="stat"><b>44</b><span>累计条目</span></div>
+    <div class="stat"><b>20</b><span>记录天数</span></div>
+    <div class="stat"><b>48</b><span>累计条目</span></div>
     <div class="stat"><b>2026-08-14</b><span>起始日期</span></div>
     <div class="stat"><b>每日更新</b><span>更新机制</span></div>
   </div>
@@ -70,6 +70,28 @@
 
 <section class="wrap">
   <div class="timeline">
+
+    <div class="day">
+      <div class="date">2026-09-02 <small>4 条</small></div>
+      <div class="items">
+        <div class="item">
+          <h4>[售后分析与归因] 1688 售后主链路切换「官方报表入库」</h4>
+          <p>售后采集从页面抓取切换为官方报表一键入库：按字段语义映射并入工单、不覆盖历史，显著降低对页采与风控的依赖；同步补齐 1688 售后拉取分支与历史遗留数据清理脚本。</p>
+        </div>
+        <div class="item">
+          <h4>[客服会话采集] 会话采集梳理为「常规整窗批量 + 售后单驱动补采」双通道</h4>
+          <p>常规批次按采集窗口整窗扫描，售后单驱动则按单定向补采对应买家会话并回填关联，两通道相互衔接、避免重复访问与漏采，加大覆盖确定性。</p>
+        </div>
+        <div class="item">
+          <h4>[店铺与经营数据] 店铺登录态「复用优先」+ 一键「打开后台」入口</h4>
+          <p>登录接口增加未捕获异常兜底，工作台登录改用「复用已存登录态优先、失败再重登」策略并在改动期间防重入；新增店铺一键打开后台直达入口，减少手工登录与页面跳转。</p>
+        </div>
+        <div class="item">
+          <h4>[工程与数据治理] 引擎层统一风控闸门 + 数据集分区工具</h4>
+          <p>浏览器引擎侧新增统一风控闸门（全局互斥 + 冷却 + 持锁复用），把访问受限平台上加的互斥与冷却收敛到一层；同步抽取「单飞门控执行器」与「数据集按平台/来源预览移除」两个通用函数沉淀进复用函数库并登记索引。</p>
+        </div>
+      </div>
+    </div>
 
     <div class="day">
       <div class="date">2026-09-01 <small>3 条</small></div>
