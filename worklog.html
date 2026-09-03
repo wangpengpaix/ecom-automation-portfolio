@@ -60,8 +60,8 @@
   <h1>每天做了什么，都在这里<span class="grad">。</span></h1>
   <p class="sub">一档持续更新的工作日记：按天记录项目进展、功能实现与工程改进，均已脱敏，含早期历史补录。每天 19 点由自动化任务自动归档追加。</p>
   <div class="stats">
-    <div class="stat"><b>20</b><span>记录天数</span></div>
-    <div class="stat"><b>48</b><span>累计条目</span></div>
+    <div class="stat"><b>21</b><span>记录天数</span></div>
+    <div class="stat"><b>52</b><span>累计条目</span></div>
     <div class="stat"><b>2026-08-14</b><span>起始日期</span></div>
     <div class="stat"><b>每日更新</b><span>更新机制</span></div>
   </div>
@@ -70,6 +70,28 @@
 
 <section class="wrap">
   <div class="timeline">
+
+    <div class="day">
+      <div class="date">2026-09-03 <small>4 条</small></div>
+      <div class="items">
+        <div class="item">
+          <h4>[售后分析与归因] 问题分析中心新增「关键词专题分析」</h4>
+          <p>沉淀 9 类商品问题检索词库，在客服会话中按关键词召回问题证据并归因聚合：严格区分「精确关联 / 候选 / 歧义 / 仅订单级」四层证据，仅精确关联计入统计；支持按平台、分店铺多选、自定义关键词、逐店数据覆盖与缺失核查，并提供商品原因汇总 + 订单证据明细双表导出与单条复合溯源。</p>
+        </div>
+        <div class="item">
+          <h4>[客服会话采集 / 工程与数据治理] 淘宝千牛采集「网络故障」定位与修复</h4>
+          <p>排查采集报“fetch failed”的根因是受限网络下 DNS 优先命中不可用的 IPv6 路由被拒：改为优先解析 IPv4 并携带底层错误码，显著降低“看似失败”的误判；同时限制会话采集结束日期不得晚于当天。</p>
+        </div>
+        <div class="item">
+          <h4>[店铺与经营数据] 登录态「复用 / 强制重登」双态修正</h4>
+          <p>把「重新登录平台」按钮与普通的「复用已保存登录态」明确区分，一键改为强制人工重新登录并正确透传开关，修复“点击重登却仍复用旧登录态”的语义不一致。</p>
+        </div>
+        <div class="item">
+          <h4>[工程与数据治理] 零依赖 Excel 导出器沉淀复用库</h4>
+          <p>把无第三方依赖的多 sheet Excel 工作簿生成器抽为跨项目通用函数并登记复用库索引，长订单号按文本保留避免科学计数法截断；与既有表格读取器形成“导出—读取”闭环。</p>
+        </div>
+      </div>
+    </div>
 
     <div class="day">
       <div class="date">2026-09-02 <small>4 条</small></div>
