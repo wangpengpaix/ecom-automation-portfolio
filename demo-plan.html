@@ -153,48 +153,25 @@
   .legend .lg { display: flex; align-items: center; gap: 5px; }
   .legend .lg i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
 
-  /* ===== 功能演示视频（占位） ===== */
+  /* ===== 功能演示视频（de敏感安全版） ===== */
   .vid-card {
-    display: flex; gap: 18px; align-items: stretch;
+    display: flex; flex-direction: column; gap: 14px;
     background: linear-gradient(135deg, #0D4F66 0%, #156F8C 70%, #1E8AAB 100%);
-    border-radius: 14px; padding: 16px; color: #fff;
+    border-radius: 14px; padding: 18px; color: #fff;
     margin-bottom: 24px; box-shadow: 0 6px 18px rgba(13,79,102,.18);
   }
-  .vid-thumb {
-    flex: 0 0 300px; height: 128px; border-radius: 10px;
-    background: linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.03)),
-                radial-gradient(circle at 30% 20%, #2E9BB8, #0d2a3a 70%);
-    display: flex; align-items: center; justify-content: center;
-    position: relative; overflow: hidden;
-    border: 1px solid rgba(255,255,255,.22);
+  .vid-player {
+    width: 100%; border-radius: 10px; display: block;
+    background: #06222f; aspect-ratio: 16 / 9;
+    border: 1px solid rgba(255,255,255,.22); box-shadow: 0 8px 24px rgba(0,0,0,.28);
   }
-  .vid-thumb::after {
-    content: ""; position: absolute; inset: 0;
-    background: repeating-linear-gradient(135deg, rgba(255,255,255,.05) 0 6px, transparent 6px 16px);
-  }
-  .vid-play-icon {
-    width: 48px; height: 48px; border-radius: 50%;
-    background: rgba(255,255,255,.16); border: 1.5px solid rgba(255,255,255,.6);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 18px; color: #fff; padding-left: 3px; z-index: 2;
-    backdrop-filter: blur(2px);
-  }
-  .vid-tag {
-    position: absolute; left: 10px; bottom: 10px; z-index: 2;
-    font-size: 10px; font-weight: 700; padding: 3px 8px;
-    border-radius: 999px; background: rgba(13,79,102,.72); border: 1px solid rgba(255,255,255,.28);
-  }
-  .vid-info { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 6px; }
+  .vid-info { display: flex; flex-direction: column; gap: 6px; }
   .vid-title { font-size: 16px; font-weight: 800; }
   .vid-sub { font-size: 12.5px; color: var(--gold); font-weight: 600; }
   .vid-desc { font-size: 12px; color: rgba(255,255,255,.85); line-height: 1.6; }
-  .vid-pending {
-    font-size: 11.5px; color: #FFE2C2; line-height: 1.5;
+  .vid-note {
+    font-size: 11.5px; color: #cfeeee; line-height: 1.5;
     border-top: 1px dashed rgba(255,255,255,.25); padding-top: 7px;
-  }
-  @media (max-width: 640px) {
-    .vid-card { flex-direction: column; }
-    .vid-thumb { flex-basis: 110px; }
   }
 
   /* ===== Responsive ===== */
@@ -231,18 +208,16 @@
 
   <div class="body">
 
-    <!-- 功能演示视频（占位） -->
+    <!-- 功能演示视频（脱敏版） -->
     <div class="section-label">功能演示视频</div>
     <div class="vid-card">
-      <div class="vid-thumb" id="vidThumb">
-        <div class="vid-play-icon" id="vidPlayIcon">▶</div>
-        <div class="vid-tag">720p · 全模块演示</div>
-      </div>
+      <video class="vid-player" controls preload="metadata" poster=""
+             src="assets/demo-video/demo_full_720p.mp4"></video>
       <div class="vid-info">
         <div class="vid-title">多平台售后企业工作台 · 功能演示</div>
         <div class="vid-sub">售后工单 · 客服会话 · 数据采集 · 问题归因 · 一屏总览</div>
         <div class="vid-desc">整段约 1 分钟，顺序呈现 12 个核心模块的实机操作：工作台首页、售后分析（问题归因 / 全局分析 / 商品 DSR / 异常预警）、多店铺管理、售后工单、数据采集（采集中心 / 报表中心）、待办任务与审批、运营管理、系统设置。</div>
-        <div class="vid-pending">▲ 该演示录屏使用内部真实数据，正在制作<b>脱敏安全版</b>，就绪后在此嵌入播放。</div>
+        <div class="vid-note">▲ 演示为<b>脱敏安全版</b>：已对内部真实数据（店铺名、订单号、金额、账号配置等）做遮挡与像素化处理，可对外播放。加载约需数秒，请耐心等待。</div>
       </div>
     </div>
 
