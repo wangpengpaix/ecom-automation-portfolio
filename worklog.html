@@ -60,8 +60,8 @@
   <h1>每天做了什么，都在这里<span class="grad">。</span></h1>
   <p class="sub">一档持续更新的工作日记：按天记录项目进展、功能实现与工程改进，均已脱敏，含早期历史补录。每天 19 点由自动化任务自动归档追加。</p>
   <div class="stats">
-    <div class="stat"><b>28</b><span>记录天数</span></div>
-    <div class="stat"><b>76</b><span>累计条目</span></div>
+    <div class="stat"><b>30</b><span>记录天数</span></div>
+    <div class="stat"><b>83</b><span>累计条目</span></div>
     <div class="stat"><b>2026-08-14</b><span>起始日期</span></div>
     <div class="stat"><b>每日更新</b><span>更新机制</span></div>
   </div>
@@ -70,6 +70,28 @@
 
 <section class="wrap">
   <div class="timeline">
+
+    <div class="day">
+      <div class="date">2026-09-14 <small>4 条</small></div>
+      <div class="items">
+        <div class="item">
+          <h4>[商品铺货与发布] 商品铺货推进到「聚水潭 SKU 换货品·绑定预检」+ 抖店发布授权核查结论修正</h4>
+          <p>核查确认工作台未配置抖店开放平台独立应用，所有权限通过聚水潭实现；当前应用控制台已通过「SKU 绑定/解绑对应关系」接口审批，可以在商品发布后建立「平台商品 SKU ↔ 聚水潭真实货品」映射；纯聚水潭路线仍不足以直接创建抖店商品，最终发布依赖后台浏览器自动填写或聚水潭另行开放发布能力；新增只读绑定预检入口，可逐行预查映射冲突、缺失和停用，不提供真实绑定执行按钮，「已对应」端到端验收仍待首款目标商品样本。</p>
+        </div>
+        <div class="item">
+          <h4>[AI 与大模型能力] AI 标题生成再轻量化：必含词注入 + 轻量单次生成 + 专职小模型</h4>
+          <p>去掉上一版本的「多轮提取 + 生成 + AI 独立审核」，用「必含词（泳衣/套数等）注入提示词 + 本地 qwen2.5:1.5b 单次调用 + 程序即时校验」替代，把平均生成时间压缩到 3 秒以内（本机核显），适合快速交互；资料内容哈希缓存，128 份以内资料不变则复用缓存；接口返回生成耗时和缓存命中统计，未达 30 字诚实标注，不硬拼凑。</p>
+        </div>
+        <div class="item">
+          <h4>[商品铺货与发布] 调整标题生成文档：记录快速版本迭代</h4>
+          <p>更新「聚水潭资料与 AI 标题实现」文档，明确当前机制参数、性能实测、测试结果和公开边界，保留迭代历史方便后续优化参考。</p>
+        </div>
+        <div class="item">
+          <h4>[工程与数据治理] 堵住 gitignore 遗漏口子</h4>
+          <p>追加忽略真实业务报告（PPT/PDF）和 PPT 构建产物（node_modules/package-lock），避免误提交真实业务数据到归档仓库。</p>
+        </div>
+      </div>
+    </div>
 
     <div class="day">
       <div class="date">2026-09-13 <small>3 条</small></div>
