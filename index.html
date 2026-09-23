@@ -23,6 +23,7 @@
   /* hero */
   header{padding:96px 0 56px;text-align:center}
   .kicker{display:inline-block;font-size:13px;color:var(--accent2);border:1px solid rgba(63,185,80,.4);padding:4px 14px;border-radius:999px;letter-spacing:1px;margin-bottom:22px;background:rgba(63,185,80,.08)}
+  .kicker.archived{color:#d9b36a;border-color:rgba(210,153,34,.45);background:rgba(210,153,34,.1)}
   h1{font-size:42px;line-height:1.2;font-weight:800}
   h1 .grad{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
   .sub{color:var(--muted);max-width:720px;margin:20px auto 0;font-size:17px}
@@ -77,7 +78,7 @@
 </head>
 <body>
 <nav><div class="wrap nav-inner">
-  <div class="brand"><span class="dot"></span> 电商运营自动化 · 项目作品集</div>
+  <div class="brand"><span class="dot" style="background:#d29922;box-shadow:0 0 10px #d29922"></span> 电商运营自动化 · 项目作品集 <span style="font-size:11px;font-weight:600;color:#d9b36a;border:1px solid rgba(210,153,34,.45);background:rgba(210,153,34,.1);border-radius:5px;padding:2px 8px">已结项</span></div>
   <div>
     <a href="worklog.html">工作日志</a>
     <a href="#brief">概览</a>
@@ -89,12 +90,17 @@
 </div></nav>
 
 <header class="wrap">
-  <span class="kicker">SOFTWARE ENGINEERING · PORTFOLIO</span>
+  <span class="kicker archived">ARCHIVED · 项目已结项 2026-09-23</span>
   <h1>让电商运营<span class="grad">更自动化</span>的软件工程实践</h1>
   <p class="sub">从数据采集、售后工单、数据分析到 AI 自动化规划——一套围绕电商运营场景，持续沉淀、可复用、可落地的系统化工程能力。</p>
+  <p class="sub" style="color:#d9b36a;margin-top:10px">本项目已于 <b>2026-09-23</b> 结项归档，本页转为只读存档，不再更新。</p>
   <div class="ctas">
-    <a class="btn primary" href="worklog.html">查看工作日志 →</a>
+    <a class="btn primary" href="worklog.html">查看工作日志（已归档）→</a>
     <a class="btn ghost" href="demo-plan.html">在线 Demo / 项目总览</a>
+  </div>
+  <div class="note" style="margin:38px auto 0;max-width:820px">
+    <b>结项说明</b>　本项目于 <b>2026-09-23</b> 完成结项归档。能力域清单、规模口径（约 2.4 万行后端与采集源码 / 150+ REST 接口 / 43 个业务模块）与近期更新均为<strong>结项时点快照</strong>，不再随开发刷新；工作日志已在结项日停止追加。<br><br>
+    <b>已记录的遗留边界</b>　一、「商品铺货与发布」真实发布始终未接入平台，停在原型阶段且全部操作 fail-closed；二、抖店未配置独立开放平台应用，全部授权经聚水潭实现；三、AI 归因在无本地模型时降级为规则判断；四、日志在 2026-09-15 – 09-22 存在空档（项目收尾期）。
   </div>
 </header>
 
@@ -107,7 +113,7 @@
     <div class="stat"><b>43</b><span>后端业务模块（Node.js）</span></div>
     <div class="stat"><b>多平台</b><span>覆盖主流电商 / IM 生态</span></div>
   </div>
-  <p class="lead" style="font-size:12.5px;color:var(--muted)">口径：后端与采集源码行数按 server 目录剔除脚本/测试/第三方依赖/运行态/运维隔离目录后统计（约 <b>2.44 万行</b>，2026-09 时点，见 server/scripts/source-stats.js）；REST 接口约 <b>152</b> 个。规模数字为归档时点快照，随筛刷新。</p>
+  <p class="lead" style="font-size:12.5px;color:var(--muted)">口径：后端与采集源码行数按 server 目录剔除脚本/测试/第三方依赖/运行态/运维隔离目录后统计（约 <b>2.44 万行</b>，2026-09 时点，见 server/scripts/source-stats.js）；REST 接口约 <b>152</b> 个。规模数字为<b>结项归档时点快照（2026-09-23）</b>，不再刷新。</p>
 </section>
 
 <section id="projects" class="wrap">
@@ -252,6 +258,7 @@
   <h2><span class="num">05</span>近期更新</h2>
   <p class="lead">持续演进，沉淀自动化能力。</p>
   <ul class="tl">
+    <li><span class="n">2026-09-23</span><div class="t">项目正式结项归档：能力域与规模口径封存，展示站转为只读存档</div><div class="d">结项盘点封存口径：约 2.4 万行后端与采集源码、150+ 接口、43 个业务模块、7 个能力域；明确记录商品铺货未接入真实发布与抖店授权依赖聚水潭两类边界。展示站转为归档态，工作日志停止追加，每日自动归档任务下线。</div></li>
     <li><span class="n">2026-09-14</span><div class="t">商品铺货推进到「聚水潭 SKU 换货品·绑定预检」+ AI 标题生成再轻量化</div><div class="d">核查确认所有授权经聚水潭实现（不依赖独立抖店应用），商品发布后可通过已获批的「SKU 对应关系」接口建立「平台商品 SKU ↔ 真实货品」映射；新增只读绑定预检入口逐行预查映射冲突/缺失/停用，真实绑定与发布仍待验证；标题生成由「多轮提取+审核」轻量化为「必含词注入 + 轻量单次生成 + 专职小模型」，本机平均 3 秒内完成，通过程序即时校验保证质量与诚实边界。</div></li>
     <li><span class="n">2026-09-13</span><div class="t">商品铺货接入「聚水潭资料读取」+ AI 动态生成并程序校验标题</div><div class="d">粘贴任意有权限的抖店主商品链接即可经聚水潭货品接口读取该商品的原标题/规格/货品信息与来源快照（ERP 参考价与库存只作参考、不自动填入目标店）；新标题由本地大模型基于原商品资料动态生成——先提取「确实存在于原文」的事实、剔除功效/年份/营销宣称，程序即时校验字数（优化目标 30 汉字）、核心品类靠前、防重复与冲突描述，人工「采用」才写入草稿；标题生成由「多次调用+独立审核」重构为「单次调用+程序即时校验」以大幅提速，资料不变则复用、结果始终人工对照实物核对；真实发布仍未接入，草稿沿用 fail-closed 边界；同步修复打开后台「有头窗口」失效自恢复，并沉淀「展示宽度计数」「浏览器上下文存活检查」两个通用函数进复用库。</div></li>
     <li><span class="n">2026-09-12</span><div class="t">商品跨店复制铺货「抖店先行」原型落地（主链接识别 + 发布草稿 + 前台改版）</div><div class="d">新增商品铺货能力：从一个主商品链接开始（不设固定源店）——识别抖店/抖音商品身份、服务器端安全展开分享短链（逐跳校验、不携带登录凭证）、按目标店整理规格与售价并保存发布草稿；商品铺货进入运营/管理员/员工一级导航，原平台页面可将当前链接一键送入工作台直达铺货页；真实发布尚未接入平台，草稿明确标注待核验，旧接口不再模拟成功；同步沉淀「安全链接解析」通用函数（防 SSRF/凭据外泄）进复用库。</div></li>
@@ -289,6 +296,7 @@
 <footer class="wrap">
   <div class="note">本作品集仅用于能力展示，内容均已脱敏，不包含任何真实业务数据、账号、凭证或敏感配置。</div>
   <div style="margin-top:16px">© 2026 · 电商运营自动化作品集 · GitHub Pages 展示</div>
+  <div style="margin-top:8px;color:#d29922">项目已结项归档（2026-09-23）· 本页为只读存档，不再更新</div>
 </footer>
 </body>
 </html>

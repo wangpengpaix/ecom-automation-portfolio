@@ -21,6 +21,9 @@
   nav a:hover,nav a.active{color:var(--text)}
   .hero{padding:74px 0 40px;text-align:center}
   .kicker{display:inline-block;font-size:13px;color:var(--accent2);border:1px solid rgba(63,185,80,.4);padding:4px 14px;border-radius:999px;letter-spacing:2px;margin-bottom:22px;background:rgba(63,185,80,.08)}
+  .kicker.archived{color:#d9b36a;border-color:rgba(210,153,34,.45);background:rgba(210,153,34,.1)}
+  .arch{max-width:780px;margin:26px auto 0;background:rgba(210,153,34,.07);border:1px solid rgba(210,153,34,.3);border-radius:10px;padding:14px 18px;color:#d9b36a;font-size:13.5px;line-height:1.7;text-align:left}
+  .arch b{color:#e3c07a}
   h1{font-size:40px;font-weight:700;letter-spacing:.5px}
   h1 .grad{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
   .sub{color:var(--muted);max-width:640px;margin:18px auto 0;font-size:16px}
@@ -47,7 +50,7 @@
 <body>
 <header>
   <div class="bar">
-    <a class="brand" href="index.html"><span class="dot"></span>电商运营自动化 · 实践手记</a>
+    <a class="brand" href="index.html"><span class="dot" style="background:#d29922;box-shadow:0 0 10px #d29922"></span>电商运营自动化 · 实践手记 <span style="font-size:11px;font-weight:600;color:#d9b36a;border:1px solid rgba(210,153,34,.45);background:rgba(210,153,34,.1);border-radius:5px;padding:2px 8px;letter-spacing:.5px">已结项</span></a>
     <nav>
       <a href="index.html">项目总览</a>
       <a href="worklog.html" class="active">工作日志</a>
@@ -56,20 +59,35 @@
 </header>
 
 <section class="hero wrap">
-  <span class="kicker">WORK LOG</span>
+  <span class="kicker archived">WORK LOG · ARCHIVED 2026-09-23</span>
   <h1>每天做了什么，都在这里<span class="grad">。</span></h1>
-  <p class="sub">一档持续更新的工作日记：按天记录项目进展、功能实现与工程改进，均已脱敏，含早期历史补录。每天 19 点由自动化任务自动归档追加。</p>
+  <p class="sub">一档工作日记：按天记录项目进展、功能实现与工程改进，均已脱敏，含早期历史补录。<br>本项目已于 <b>2026-09-23 结项归档</b>，本页停止追加，仅作工程能力存档保留。</p>
   <div class="stats">
-    <div class="stat"><b>30</b><span>记录天数</span></div>
-    <div class="stat"><b>83</b><span>累计条目</span></div>
+    <div class="stat"><b>31</b><span>记录天数</span></div>
+    <div class="stat"><b>85</b><span>累计条目</span></div>
     <div class="stat"><b>2026-08-14</b><span>起始日期</span></div>
-    <div class="stat"><b>每日更新</b><span>更新机制</span></div>
+    <div class="stat"><b>已结项</b><span>更新机制</span></div>
   </div>
-  <div class="legend">滚动查看完整工作日志（含 08-14 起的早期历史补录）· 旧条目在上方时间线下按日排列</div>
+  <div class="legend">记录区间 2026-08-14 – 2026-09-23（含早期历史补录）· 时间线降序排列，09-23 结项条目为终点</div>
+  <div class="arch"><b>结项说明</b>　本项目于 2026-09-23 完成结项归档，工作日志在结项日停止追加（原先每日 19 点的自动归档任务已下线）。页内规模数字与条目内容均为结项时点快照，不再随开发刷新。</div>
 </section>
 
 <section class="wrap">
   <div class="timeline">
+
+    <div class="day">
+      <div class="date">2026-09-23 <small>2 条</small></div>
+      <div class="items">
+        <div class="item">
+          <h4>[工程与数据治理] 电商运营自动化项目正式结项：能力域、规模口径与遗留边界封存</h4>
+          <p>对整套工作台做结项盘点并封存口径：交付约 2.4 万行后端与采集源码、150+ REST 接口、43 个业务模块，覆盖店铺与经营数据、售后分析与归因、客服会话采集、微信与 IM 自动化、AI 与大模型能力、工程与数据治理、商品铺货与发布共 7 个能力域（M6 沉淀 1 / M5 运行 4 / M4 联调 1 / M2 原型 1）。同时明确记录两类边界：商品铺货与发布的真实发布始终未接入平台、全部操作 fail-closed 且停在原型阶段；抖店无独立开放平台应用、授权全部经聚水潭实现。</p>
+        </div>
+        <div class="item">
+          <h4>[展示与交付] 展示站与工作日志转为归档态，每日自动归档任务下线</h4>
+          <p>本作品集在结项日转入只读存档：首页标注「已结项」并补结项说明，工作日志的更新机制由「每日更新」改为「已结项」、在时间线终点追加本条目，原先每日推送到本仓库的自动归档任务不再指向本仓库。规模数字与近期更新均为结项时点快照，不再随开发刷新；能力域、通用函数库与工程治理部分保留，供后续项目引用。</p>
+        </div>
+      </div>
+    </div>
 
     <div class="day">
       <div class="date">2026-09-14 <small>4 条</small></div>
@@ -588,6 +606,7 @@
 
 <footer>
   <p>电商运营自动化 · 工作日志（脱敏版）｜ <a href="index.html">查看项目总览 →</a></p>
+  <p style="margin-top:8px;color:#d29922">项目已结项归档（2026-09-23）· 日志停止追加</p>
 </footer>
 </body>
 </html>
