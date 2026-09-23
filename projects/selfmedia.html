@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自媒体账号孵化器 · 项目详情</title>
+<style>
+  :root{
+    --bg:#0d1117; --bg2:#161b22; --card:#1c2129; --line:#2d333b;
+    --text:#e6edf3; --muted:#8b949e; --accent:#a371f7; --accent2:#3fb950;
+    --warning:#d29922; --danger:#f14c4c;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:linear-gradient(160deg,#0d1117,#10141c);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+  /* nav */
+  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);background:rgba(13,17,23,.85);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .brand{font-weight:700;letter-spacing:.3px;display:flex;align-items:center;gap:10px}
+  .brand .dot{width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent)}
+  nav a{color:var(--muted);text-decoration:none;font-size:14px;margin-left:22px;transition:color .2s}
+  nav a:hover{color:var(--text)}
+  /* hero */
+  header{padding:96px 0 56px;text-align:center}
+  .kicker{display:inline-block;font-size:13px;color:var(--accent2);border:1px solid rgba(63,185,80,.4);padding:4px 14px;border-radius:999px;letter-spacing:1px;margin-bottom:22px;background:rgba(63,185,80,.08)}
+  h1{font-size:42px;line-height:1.2;font-weight:800}
+  h1 .grad{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .sub{color:var(--muted);max-width:760px;margin:20px auto 0;font-size:17px}
+  .ctas{margin-top:30px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .btn{display:inline-block;padding:11px 22px;border-radius:8px;text-decoration:none;font-size:15px;font-weight:600;transition:transform .15s,box-shadow .2s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn.primary{background:var(--accent);color:#fff;box-shadow:0 8px 20px rgba(163,113,247,.35)}
+  .btn.ghost{border:1px solid var(--line);color:var(--text)}
+  .btn.ghost:hover{border-color:var(--accent)}
+  section{margin-top:72px}
+  h2{font-size:26px;font-weight:700;display:flex;align-items:center;gap:12px}
+  h2 .num{font-size:14px;color:var(--accent);border:1px solid var(--line);border-radius:6px;padding:2px 10px;font-family:ui-monospace,monospace}
+  .lead{color:var(--muted);margin:14px 0 26px}
+  /* stats */
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px;text-align:center}
+  .stat b{display:block;font-size:30px;color:var(--accent)}
+  .stat span{color:var(--muted);font-size:13px}
+  /* cards */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:20px}
+  .grid.three{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:transform .2s,border-color .2s;display:flex;flex-direction:column}
+  .card:hover{transform:translateY(-4px);border-color:var(--accent)}
+  .card .head{padding:20px 20px 8px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+  .card .head .badge{font-size:11px;padding:2px 8px;border-radius:5px;background:var(--accent);color:#fff;white-space:nowrap}
+  .card .head .badge.alt{background:var(--accent2)}
+  .card .head .badge.warn{background:var(--warning);color:#1c1c1c}
+  .card h3{font-size:19px}
+  .card .pos{color:var(--muted);font-size:13px;margin:2px 20px 0}
+  .card .desc{padding:12px 20px 4px;color:#c9d1d9;font-size:14.5px}
+  .tags{padding:12px 20px 18px;display:flex;flex-wrap:wrap;gap:8px}
+  .tag{font-size:12px;background:rgba(163,113,247,.12);border:1px solid rgba(163,113,247,.3);color:#c8a8ff;padding:2px 10px;border-radius:999px}
+  .card .foot{margin-top:auto;padding:16px 20px;border-top:1px solid var(--line)}
+  .card .foot span{color:var(--muted);font-size:13px}
+  /* skills */
+  .skill-row{display:flex;flex-wrap:wrap;gap:10px}
+  .skill-chip{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-size:14px;color:#c9d1d9}
+  .skill-chip b{color:var(--text)}
+  /* timeline */
+  .tl{list-style:none;border-left:2px solid var(--line);margin:6px 0 0 14px;padding-left:26px}
+  .tl li{position:relative;margin-bottom:26px}
+  .tl li::before{content:"";position:absolute;left:-33px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(163,113,247,.15)}
+  .tl .t{font-weight:700}
+  .tl .d{color:var(--muted);font-size:14px}
+  .tl .n{font-size:12px;color:var(--accent2);font-family:ui-monospace,monospace}
+  /* steps */
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px}
+  .step .k{font-family:ui-monospace,monospace;font-size:12px;color:var(--accent);letter-spacing:1px}
+  .step h4{font-size:16px;margin:8px 0 6px}
+  .step p{color:var(--muted);font-size:13.5px}
+  footer{margin-top:90px;border-top:1px solid var(--line);padding:28px 0 40px;color:var(--muted);font-size:13px;text-align:center}
+  .note{background:rgba(210,153,34,.08);border:1px solid rgba(210,153,34,.3);border-radius:10px;padding:14px 18px;color:#d9b36a;font-size:13.5px;text-align:left}
+  @media(max-width:640px){h1{font-size:30px}header{padding:64px 0 40px}}
+</style>
+</head>
+<body>
+<nav><div class="wrap nav-inner">
+  <a class="brand" href="../index.html" style="text-decoration:none;color:inherit"><span class="dot"></span> 自媒体账号孵化器 · 项目详情 <span style="font-size:11px;font-weight:600;color:#c8a8ff;border:1px solid rgba(163,113,247,.45);background:rgba(163,113,247,.1);border-radius:5px;padding:2px 8px">进行中</span></a>
+  <div>
+    <a href="../index.html">← 作品集</a>
+    <a href="../worklog.html">工作日志</a>
+    <a href="#channels">发布通道</a>
+    <a href="#modules">模块</a>
+    <a href="#skills">技术栈</a>
+    <a href="#updates">更新</a>
+  </div>
+</div></nav>
+
+<header class="wrap">
+  <span class="kicker">CONTENT AUTOMATION · PORTFOLIO</span>
+  <h1>把多平台发布能力，<span class="grad">收进一个后台</span></h1>
+  <p class="sub">自媒体矩阵内容中台：<strong>账号接进来 → 内容准备好 → 一键或定时发到多平台 → 看发布结果</strong>。以「三通道」架构应对各平台开放程度的差异，把发布这件事做成可调度、可观测、可降级的工程链路。</p>
+  <div class="ctas">
+    <a class="btn primary" href="../worklog.html">查看工作日志 →</a>
+    <a class="btn ghost" href="#channels">发布通道架构</a>
+    <a class="btn ghost" href="../index.html">← 作品集总览</a>
+  </div>
+</header>
+
+<section id="brief" class="wrap">
+  <h2><span class="num">01</span>工作概览</h2>
+  <p class="lead">面向自媒体矩阵运营的实际作业场景，独立完成从产品架构、三通道设计到工程落地与真实链路打通的闭环——一套<strong>多平台内容发布与账号管理的中小型业务系统</strong>。</p>
+  <div class="stats">
+    <div class="stat"><b>1万+</b><span>前后端源码行数</span></div>
+    <div class="stat"><b>3</b><span>发布通道</span></div>
+    <div class="stat"><b>6</b><span>目标平台</span></div>
+    <div class="stat"><b>12</b><span>数据表</span></div>
+  </div>
+  <p class="lead" style="font-size:12.5px;color:var(--muted)">口径：后端 <b>9,125</b> 行（70 个 Python 文件，含 app / scripts / tests）；前端 <b>1,358</b> 行（9 个 Vue 组件 + 入口脚本）；App 层数据表 <b>12</b> 张；管理后台 <b>8</b> 个页面；平台发布器 <b>8</b> 个。统计时点 <b>2026-09-23</b>，随开发刷新。</p>
+</section>
+
+<section id="channels" class="wrap">
+  <h2><span class="num">02</span>发布通道</h2>
+  <p class="lead">不要指望用一种方式打通所有平台——它们的开放程度完全不同。每个平台走最适合它的那条通道，失败时按既定边界降级，绝不静默失败。</p>
+  <div class="grid three">
+
+    <div class="card">
+      <div class="head"><h3>通道 A · 官方 API</h3><span class="badge alt">已实现</span></div>
+      <div class="pos">公众号（抖音 / 快手待资质）</div>
+      <div class="desc">AppID / Secret 与 OAuth 认证。公众号已实现完整链路：建账号探活 → 传素材 → 建内容 → 写草稿 → 发布。抖音 / 快手为骨架，需平台资质审批后填充，未接入前所有发布操作明确 fail-closed。</div>
+      <div class="tags"><span class="tag">AppID / Secret</span><span class="tag">OAuth</span><span class="tag">草稿箱</span><span class="tag">fail-closed</span></div>
+    </div>
+
+    <div class="card">
+      <div class="head"><h3>通道 B · Web 接口直连</h3><span class="badge alt">已实现</span></div>
+      <div class="pos">B站</div>
+      <div class="desc">直接调用站点 Web 接口，以 Cookie（SESSDATA + bili_jct）认证，含分片上传参数处理。相比浏览器自动化更快、更省资源，代价是需跟随站点接口变动维护。</div>
+      <div class="tags"><span class="tag">Cookie 认证</span><span class="tag">分片上传</span><span class="tag">轻量</span></div>
+    </div>
+
+    <div class="card">
+      <div class="head"><h3>通道 C · 浏览器自动化</h3><span class="badge warn">骨架</span></div>
+      <div class="pos">小红书 · 视频号（公众号降级兜底）</div>
+      <div class="desc">基于 Playwright 复用人工导出的 storage_state 登录态，按页面结构驱动。铁律：<strong>不自动登录</strong>，登录态只能人工导出；平台改版只改 selectors YAML、不改代码。同一套引擎同时承担公众号在 48001 后的降级发布。</div>
+      <div class="tags"><span class="tag">Playwright</span><span class="tag">storage_state</span><span class="tag">selectors 外置</span><span class="tag">不自动登录</span></div>
+    </div>
+
+  </div>
+</section>
+
+<section id="modules" class="wrap">
+  <h2><span class="num">03</span>功能模块</h2>
+  <p class="lead">V1.0 范围聚焦「账号管理 + 多平台发布聚合」，养号互动模块按产品决策后置。</p>
+  <div class="grid">
+
+    <div class="card">
+      <div class="head"><h3>01 · 账号矩阵与健康度</h3><span class="badge alt">已落地</span></div>
+      <div class="pos">多平台账号接入 · 登录态运维 · 矩阵看板</div>
+      <div class="desc">统一接入各平台账号并维护其登录态生命周期，输出跨账号的矩阵健康度——登录态有效期、连续失败次数、上次成功时间，让「哪个号快掉线」在出问题前就可见。</div>
+      <div class="tags"><span class="tag">登录态</span><span class="tag">健康度</span><span class="tag">凭据不回传</span></div>
+    </div>
+
+    <div class="card">
+      <div class="head"><h3>02 · 内容生产管线</h3><span class="badge alt">已闭环</span></div>
+      <div class="pos">选题池 → 生成 → 审核 → 入队</div>
+      <div class="desc">选题池产出选题，按风格档生成正文，经违禁词与格式校验后进入审核态、由人工放行，通过后自动入发布队列。平台格式适配（标题字数、公众号 HTML 与摘要长度、去重相似度）在生成阶段即校验，避免不合格内容流入队列；无模型时降级模板不阻塞。</div>
+      <div class="tags"><span class="tag">选题池</span><span class="tag">风格档</span><span class="tag">人工审核</span><span class="tag">降级不阻塞</span></div>
+    </div>
+
+    <div class="card">
+      <div class="head"><h3>03 · 素材库与封面</h3><span class="badge alt">已落地</span></div>
+      <div class="pos">素材入库 · 封面处理 · 图片库权限</div>
+      <div class="desc">素材与封面统一入库管理，发布时按平台要求处理封面与配图；封面图片库权限按真实能力判定，避免因误判导致发布中断。</div>
+      <div class="tags"><span class="tag">素材库</span><span class="tag">封面</span><span class="tag">权限判定</span></div>
+    </div>
+
+    <div class="card">
+      <div class="head"><h3>04 · 多平台发布调度</h3><span class="badge alt">已落地</span></div>
+      <div class="pos">自旋引擎 · 错峰 · 水位线 · 重试</div>
+      <div class="desc">发布任务由轮询 worker 带退避地自推进（自旋引擎），避免固定间隔空转；调度侧保留错峰与访问水位线，避免多账号在同一时刻集中请求平台；失败按策略重试，步骤水位线记录每条任务走到哪一步。</div>
+      <div class="tags"><span class="tag">自旋引擎</span><span class="tag">错峰</span><span class="tag">水位线</span><span class="tag">重试</span></div>
+    </div>
+
+    <div class="card">
+      <div class="head"><h3>05 · 发布通道与降级</h3><span class="badge alt">已打通</span></div>
+      <div class="pos">两级链路 · 条件降级 · fail-closed</div>
+      <div class="desc">同一发布动作优先走官方 API；遇到接口权限不足（48001）或出口 IP 不在白名单这两类典型失败时，自动降级到浏览器通道完成发布，而非直接中断。未接入真实发布的能力一律明确报错，不模拟成功。</div>
+      <div class="tags"><span class="tag">48001 降级</span><span class="tag">IP 白名单降级</span><span class="tag">fail-closed</span></div>
+    </div>
+
+    <div class="card">
+      <div class="head"><h3>06 · 可观测与工程治理</h3><span class="badge alt">已落地</span></div>
+      <div class="pos">SSE 进度 · 异常告警 · 测试与迁移</div>
+      <div class="desc">发布进度通过 SSE 实时推送前端而非轮询；异常统一进入告警页；工程侧配齐 pytest 套件（Publisher 级别用 mock 响应、不连真实平台）、Alembic 版本化迁移与 SECRET_KEY 生产化注入。</div>
+      <div class="tags"><span class="tag">SSE</span><span class="tag">异常告警</span><span class="tag">pytest</span><span class="tag">Alembic</span></div>
+    </div>
+
+  </div>
+</section>
+
+<section id="skills" class="wrap">
+  <h2><span class="num">04</span>技术栈</h2>
+  <p class="lead">务实选型，优先「能自己跑起来」而不是「看起来先进」。</p>
+  <div class="skill-row">
+    <span class="skill-chip"><b>后端</b> · Python / FastAPI</span>
+    <span class="skill-chip"><b>数据</b> · SQLAlchemy · Alembic · SQLite → MySQL</span>
+    <span class="skill-chip"><b>前端</b> · Vue 3 · Element Plus · Vite</span>
+    <span class="skill-chip"><b>调度</b> · 轮询 worker · 自旋引擎 · 错峰水位线</span>
+    <span class="skill-chip"><b>自动化</b> · Playwright · storage_state</span>
+    <span class="skill-chip"><b>模型</b> · 本地 / 远程 LLM · 无 Key 降级模板</span>
+    <span class="skill-chip"><b>实时</b> · SSE 发布进度推送</span>
+    <span class="skill-chip"><b>工程</b> · pytest · 环境变量注入 · 凭据脱敏</span>
+  </div>
+</section>
+
+<section id="updates" class="wrap">
+  <h2><span class="num">05</span>近期更新</h2>
+  <p class="lead">持续演进，沉淀发布与内容生产能力。</p>
+  <ul class="tl">
+    <li data-pj="sm"><span class="n">2026-09-23</span><div class="t">公众号真发链路端到端跑通 + 内容生产管线闭环</div><div class="d">官方 API 写草稿、48001 与 IP 白名单失败自动降级浏览器通道，真发链路首次端到端跑通；内容生产管线完成选题 / 生成 / 审核 / 入队闭环，同步落地自旋引擎、SSE 发布进度与账号矩阵健康度，并补齐 pytest、Alembic 与 SECRET_KEY 生产化。</div></li>
+    <li data-pj="sm"><span class="n">2026-09-22</span><div class="t">MVP 初始提交：三通道架构与八个管理页面</div><div class="d">确立 V1.0 范围与三通道发布架构（官方 API / Web 接口直连 / 浏览器自动化），搭齐账号管理、风格档、选题池、内容创作、素材库、发布任务与异常告警等模块。</div></li>
+  </ul>
+</section>
+
+<section id="how" class="wrap">
+  <h2><span class="num">06</span>运行方式</h2>
+  <p class="lead">单机单端口即可跑起来，无需中间件。</p>
+  <div class="steps">
+    <div class="step"><div class="k">STEP 01</div><h4>配置与建表</h4><p>安装依赖，从示例配置生成环境变量文件，执行 Alembic 迁移建表。</p></div>
+    <div class="step"><div class="k">STEP 02</div><h4>起服务与 worker</h4><p>启动 FastAPI 单端口服务并另起一个发布 worker，两者共享同一数据库。</p></div>
+    <div class="step"><div class="k">STEP 03</div><h4>接入账号</h4><p>按平台选择通道：官方 API 填 AppID/Secret，Web 直连填 Cookie，浏览器通道人工扫码导出登录态。</p></div>
+    <div class="step"><div class="k">STEP 04</div><h4>生产与发布</h4><p>选题 → 生成 → 审核入队 → 定时或手动发布，在概览与发布任务页查看进度与结果。</p></div>
+  </div>
+</section>
+
+<footer class="wrap">
+  <div class="note">本作品集仅用于能力展示，内容均已脱敏，不包含任何真实业务数据、账号、凭证、密钥或敏感配置；页面描述的是公开的工程方案与架构决策，不含平台侧私有信息。</div>
+  <div style="margin-top:16px">© 2026 · 自动化工程作品集 · 自媒体账号孵化器 · <a href="../index.html" style="color:var(--accent);text-decoration:none">返回总览</a></div>
+</footer>
+</body>
+</html>

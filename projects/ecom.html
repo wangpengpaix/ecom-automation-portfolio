@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>电商运营自动化（已结项）· 项目详情</title>
+<style>
+  :root{
+    --bg:#0d1117; --bg2:#161b22; --card:#1c2129; --line:#2d333b;
+    --text:#e6edf3; --muted:#8b949e; --accent:#2f81f7; --accent2:#3fb950;
+    --warning:#d29922; --danger:#f14c4c;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:linear-gradient(160deg,#0d1117,#10141c);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+  /* nav */
+  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);background:rgba(13,17,23,.85);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .brand{font-weight:700;letter-spacing:.3px;display:flex;align-items:center;gap:10px}
+  .brand .dot{width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent)}
+  nav a{color:var(--muted);text-decoration:none;font-size:14px;margin-left:22px;transition:color .2s}
+  nav a:hover{color:var(--text)}
+  /* hero */
+  header{padding:96px 0 56px;text-align:center}
+  .kicker{display:inline-block;font-size:13px;color:var(--accent2);border:1px solid rgba(63,185,80,.4);padding:4px 14px;border-radius:999px;letter-spacing:1px;margin-bottom:22px;background:rgba(63,185,80,.08)}
+  .kicker.archived{color:#d9b36a;border-color:rgba(210,153,34,.45);background:rgba(210,153,34,.1)}
+  h1{font-size:42px;line-height:1.2;font-weight:800}
+  h1 .grad{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .sub{color:var(--muted);max-width:720px;margin:20px auto 0;font-size:17px}
+  .ctas{margin-top:30px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .btn{display:inline-block;padding:11px 22px;border-radius:8px;text-decoration:none;font-size:15px;font-weight:600;transition:transform .15s,box-shadow .2s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn.primary{background:var(--accent);color:#fff;box-shadow:0 8px 20px rgba(47,129,247,.35)}
+  .btn.ghost{border:1px solid var(--line);color:var(--text)}
+  .btn.ghost:hover{border-color:var(--accent)}
+  section{margin-top:72px}
+  h2{font-size:26px;font-weight:700;display:flex;align-items:center;gap:12px}
+  h2 .num{font-size:14px;color:var(--accent);border:1px solid var(--line);border-radius:6px;padding:2px 10px;font-family:ui-monospace,monospace}
+  .lead{color:var(--muted);margin:14px 0 26px}
+  /* stats */
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px;text-align:center}
+  .stat b{display:block;font-size:30px;color:var(--accent)}
+  .stat span{color:var(--muted);font-size:13px}
+  /* projects */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:20px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:transform .2s,border-color .2s;display:flex;flex-direction:column}
+  .card:hover{transform:translateY(-4px);border-color:var(--accent)}
+  .card .head{padding:20px 20px 8px;display:flex;justify-content:space-between;align-items:center}
+  .card .head .badge{font-size:11px;padding:2px 8px;border-radius:5px;background:var(--accent);color:#fff}
+  .card .head .badge.alt{background:var(--accent2)}
+  .card h3{font-size:19px}
+  .card .pos{color:var(--muted);font-size:13px;margin:2px 20px 0}
+  .card .desc{padding:12px 20px 4px;color:#c9d1d9;font-size:14.5px}
+  .tags{padding:12px 20px 6px;display:flex;flex-wrap:wrap;gap:8px}
+  .tag{font-size:12px;background:rgba(47,129,247,.12);border:1px solid rgba(47,129,247,.3);color:#79b8ff;padding:2px 10px;border-radius:999px}
+  .card .foot{margin-top:auto;padding:16px 20px;border-top:1px solid var(--line)}
+  .card .foot a{color:var(--accent);text-decoration:none;font-size:14px;font-weight:600}
+  .card .foot a:hover{text-decoration:underline}
+  /* skills */
+  .skill-row{display:flex;flex-wrap:wrap;gap:10px}
+  .skill-chip{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-size:14px;color:#c9d1d9}
+  .skill-chip b{color:var(--text)}
+  /* arch svg */
+  .arch{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px;margin-top:6px}
+  .arch svg{width:100%;height:auto}
+  /* timeline */
+  .tl{list-style:none;border-left:2px solid var(--line);margin:6px 0 0 14px;padding-left:26px}
+  .tl li{position:relative;margin-bottom:26px}
+  .tl li::before{content:"";position:absolute;left:-33px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(47,129,247,.15)}
+  .tl .t{font-weight:700}
+  .tl .d{color:var(--muted);font-size:14px}
+  .tl .n{font-size:12px;color:var(--accent2);font-family:ui-monospace,monospace}
+  footer{margin-top:90px;border-top:1px solid var(--line);padding:28px 0 40px;color:var(--muted);font-size:13px;text-align:center}
+  .note{background:rgba(210,153,34,.08);border:1px solid rgba(210,153,34,.3);border-radius:10px;padding:14px 18px;color:#d9b36a;font-size:13.5px;text-align:left}
+  @media(max-width:640px){h1{font-size:30px}header{padding:64px 0 40px}}
+</style>
+</head>
+<body>
+<nav><div class="wrap nav-inner">
+  <a class="brand" href="../index.html" style="text-decoration:none;color:inherit"><span class="dot" style="background:#d29922;box-shadow:0 0 10px #d29922"></span> 电商运营自动化 · 项目详情 <span style="font-size:11px;font-weight:600;color:#d9b36a;border:1px solid rgba(210,153,34,.45);background:rgba(210,153,34,.1);border-radius:5px;padding:2px 8px">已结项</span></a>
+  <div>
+    <a href="../index.html">← 作品集</a>
+    <a href="../worklog.html">工作日志</a>
+    <a href="#projects">能力域</a>
+    <a href="#skills">技术栈</a>
+    <a href="#arch">架构</a>
+    <a href="#updates">更新</a>
+  </div>
+</div></nav>
+
+<header class="wrap">
+  <span class="kicker archived">ARCHIVED · 项目已结项 2026-09-23</span>
+  <h1>让电商运营<span class="grad">更自动化</span>的软件工程实践</h1>
+  <p class="sub">从数据采集、售后工单、数据分析到 AI 自动化规划——一套围绕电商运营场景，持续沉淀、可复用、可落地的系统化工程能力。</p>
+  <p class="sub" style="color:#d9b36a;margin-top:10px">本项目已于 <b>2026-09-23</b> 结项归档，本页为该项目的只读存档，内容不再更新。</p>
+  <div class="ctas">
+    <a class="btn primary" href="../worklog.html">查看工作日志（已归档）→</a>
+    <a class="btn ghost" href="../demo-plan.html">在线 Demo</a>
+    <a class="btn ghost" href="../index.html">← 作品集总览</a>
+  </div>
+  <div class="note" style="margin:38px auto 0;max-width:820px">
+    <b>结项说明</b>　本项目于 <b>2026-09-23</b> 完成结项归档。能力域清单、规模口径（约 2.4 万行后端与采集源码 / 150+ REST 接口 / 43 个业务模块）与近期更新均为<strong>结项时点快照</strong>，不再随开发刷新；工作日志已在结项日停止追加。<br><br>
+    <b>已记录的遗留边界</b>　一、「商品铺货与发布」真实发布始终未接入平台，停在原型阶段且全部操作 fail-closed；二、抖店未配置独立开放平台应用，全部授权经聚水潭实现；三、AI 归因在无本地模型时降级为规则判断；四、日志在 2026-09-15 – 09-22 存在空档（项目收尾期）。
+  </div>
+</header>
+
+<section id="brief" class="wrap">
+  <h2><span class="num">01</span>工作概览</h2>
+  <p class="lead">围绕电商运营的一线痛点，独立完成从架构设计、工程落地到持续维护的闭环——一套<strong>多平台电商数据采集与运营自动化的中小型内部业务系统</strong>（规模约 2.4 万行后端与采集源码 / 150+ 后端接口）。</p>
+  <div class="stats">
+    <div class="stat"><b>2.4万+</b><span>后端与采集源码行数</span></div>
+    <div class="stat"><b>150+</b><span>后端 REST 接口</span></div>
+    <div class="stat"><b>43</b><span>后端业务模块（Node.js）</span></div>
+    <div class="stat"><b>多平台</b><span>覆盖主流电商 / IM 生态</span></div>
+  </div>
+  <p class="lead" style="font-size:12.5px;color:var(--muted)">口径：后端与采集源码行数按 server 目录剔除脚本/测试/第三方依赖/运行态/运维隔离目录后统计（约 <b>2.44 万行</b>，2026-09 时点，见 server/scripts/source-stats.js）；REST 接口约 <b>152</b> 个。规模数字为<b>结项归档时点快照（2026-09-23）</b>，不再刷新。</p>
+</section>
+
+<section id="projects" class="wrap">
+  <h2><span class="num">02</span>能力域</h2>
+  <p class="lead">按业务域沉淀能力（同一系统不同环节分别归域，不以项目/目录命名）。</p>
+  <div class="grid">
+
+    <div class="card">
+      <div class="head"><h3>01 · 店铺与经营数据</h3><span class="badge">M5 运行</span></div>
+      <div class="pos">多平台店铺管理 · 经营概览 · DSR 监控 · 自动化中心</div>
+      <div class="desc">覆盖主流电商平台的店铺管理、登录态/Cookie 运维、经营数据驾驶舱与评分监控，反风控采集能力按店铺隔离；内置「自动化中心」：按每天/每周/间隔/单次计划自动执行店铺采集与售后分析，带运行互斥与中断恢复。</div>
+      <div class="tags">
+        <span class="tag">Playwright</span><span class="tag">多平台</span><span class="tag">驾驶舱</span><span class="tag">按店铺隔离</span><span class="tag">自动化中心</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="head"><h3>02 · 售后分析与归因</h3><span class="badge">M5 运行</span></div>
+      <div class="pos">售后工单 · SKU 归因 · 一键分析流水线 · 工单×会话关联</div>
+      <div class="desc">售后工单管理 + 多维归因（品类/归属/SLA/严重度）+ 一键分析流水线；售后工单与客服会话自动关联（多证据加权 + 确定性闭环），规则引擎 + 学习知识库 + 本地模型兜底混合判断，定位到具体商品与买家原因；内置「关键词专题分析」：按商品问题分类词库在客服会话中检索、按证据分层（精确/候选/歧义/仅订单级）归因聚合与逐店覆盖核查；多平台售后统一收口到「分析工单源」（普通平台订单台账 + 抖店聚水潭售后表，数据库不可用自动健康熔断降级）。</div>
+      <div class="tags">
+        <span class="tag">一键分析流水线</span><span class="tag">工单×会话</span><span class="tag">确定性闭环</span><span class="tag">统一工单源</span><span class="tag">多证据加权关联</span><span class="tag">知识库学习</span><span class="tag">模型兜底</span><span class="tag">SLA 预警</span><span class="tag">官方报表导入</span><span class="tag">关键词专题分析</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="head"><h3>03 · 客服会话采集</h3><span class="badge">M4 联调</span></div>
+      <div class="pos">旺旺 / 千牛 / 飞鸽 · 会话入库与导出</div>
+      <div class="desc">跨平台客服会话的自动化采集、入库、查询与导出，支持「全量扫描 + 精准采集所选单」，与售后统计联动、为归因提供会话证据；淘宝/1688 由售后单直达入口「确定性」定位唯一买家会话，并从结构化记录提取订单号 + 售后单号双标识。</div>
+      <div class="tags">
+        <span class="tag">多通道</span><span class="tag">会话入库</span><span class="tag">导出</span><span class="tag">增量水位线</span><span class="tag">售后台驱动</span><span class="tag">全量扫描/精准采集</span><span class="tag">订单号+售后单号</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="head"><h3>04 · 微信与 IM 自动化</h3><span class="badge">M5 运行</span></div>
+      <div class="pos">微信采集 · 历史导入 · AI 归纳 · 关键词预警 · 站内通知</div>
+      <div class="desc">面向自有聊天会话的采集与归档：多账号增量采集、历史数据幂等补录、关键词实时预警，AI 归纳结果可降级不阻塞采集。</div>
+      <div class="tags">
+        <span class="tag">实时监听</span><span class="tag">幂等去重</span><span class="tag">关键词预警</span><span class="tag">通知</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="head"><h3>05 · AI 与大模型能力</h3><span class="badge">M5 运行</span></div>
+      <div class="pos">本地模型 · 意图/情感/摘要/方案 · 归因兜底</div>
+      <div class="desc">接本地大模型完成会话意图/情感/摘要/处理方案归纳；在规则置信不足时为售后归因提供 LLM 兜底，无模型时自动降级。</div>
+      <div class="tags">
+        <span class="tag">Ollama</span><span class="tag">本地推理</span><span class="tag">降级</span><span class="tag">规则+模型</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="head"><h3>06 · 工程与数据治理</h3><span class="badge">M6 沉淀</span></div>
+      <div class="pos">数据去重 · skills 通用库 · 权限隔离 · 鉴权限流 · 自动归档</div>
+      <div class="desc">三层去重、跨项目通用函数库、JWT/限流等工程基础设施，以及按业务域自动归档到私有仓库与展示站的机制；近期新增外部依赖健康探测、计划任务调度器、数据按运营隔离、凭据脱敏、配置原子写入、登录限流与安全链接解析（防 SSRF/凭据外泄）等治理能力。</div>
+      <div class="tags">
+        <span class="tag">skills 库</span><span class="tag">三层去重</span><span class="tag">环境变量注入</span><span class="tag">定时归档</span><span class="tag">数据隔离</span><span class="tag">凭据脱敏</span><span class="tag">原子写入</span><span class="tag">安全链接解析</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="head"><h3>07 · 商品铺货与发布</h3><span class="badge">M2 原型</span></div>
+      <div class="pos">跨店复制铺货 · 主链接识别 · 聚水潭资料 · AI 标题 · 发布草稿</div>
+      <div class="desc">从一个主商品链接开始（不设固定源店）：识别平台商品身份、服务器端安全展开分享短链、经聚水潭货品接口读取原商品资料与来源快照（ERP 售价/库存只参考不自动落目标）；本地大模型基于原资料动态生成新标题，程序即时校验（字数/品类靠前/剔功效年份宣称/防冲突），人工「采用」才写入草稿；打开店铺后台即可一键把当前商品链接送入工作台；真实发布按「先单店走通、再批量」接入平台开放接口，未接入前所有发布操作明确 fail-closed、绝不模拟成功。</div>
+      <div class="tags">
+        <span class="tag">主链接识别</span><span class="tag">短链安全展开</span><span class="tag">聚水潭货品</span><span class="tag">AI 标题生成</span><span class="tag">发布草稿</span><span class="tag">权限隔离</span><span class="tag">fail-closed</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="skills" class="wrap">
+  <h2><span class="num">03</span>技术栈</h2>
+  <p class="lead">务实选型，注重落地与可维护。</p>
+  <div class="skill-row">
+    <span class="skill-chip"><b>后端</b> · Node.js / Express · Python</span>
+    <span class="skill-chip"><b>前端</b> · 原生 HTML/CSS/JS · 响应式单页</span>
+    <span class="skill-chip"><b>存储</b> · MySQL · JSON 持久化</span>
+    <span class="skill-chip"><b>自动化</b> · Playwright · 浏览器自动化</span>
+    <span class="skill-chip"><b>工程</b> · Git · 私有归档 · 定时任务 · 环境变量注入</span>
+  </div>
+</section>
+
+<section id="arch" class="wrap">
+  <h2><span class="num">04</span>架构思路</h2>
+  <p class="lead">统一的「底座 + 能力 + 闭环」分层设计，让模块可独立演进。</p>
+  <div class="arch">
+<svg viewBox="0 0 960 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="分层架构示意">
+  <!-- base -->
+  <text x="40" y="36" fill="#8b949e" font-size="13">统一底座 (Foundation)</text>
+  <g fill="#161b22" stroke="#2d333b">
+    <rect x="40" y="48" width="200" height="62" rx="10" stroke="#2f81f7"/>
+    <rect x="260" y="48" width="200" height="62" rx="10" stroke="#2f81f7"/>
+    <rect x="480" y="48" width="200" height="62" rx="10" stroke="#2f81f7"/>
+    <rect x="700" y="48" width="220" height="62" rx="10" stroke="#2f81f7"/>
+  </g>
+  <g fill="#e6edf3" font-size="13" text-anchor="middle">
+    <text x="140" y="76">权限体系</text><text x="140" y="94" fill="#8b949e" font-size="11">多角色 · 数据隔离</text>
+    <text x="360" y="76">消息预警</text><text x="360" y="94" fill="#8b949e" font-size="11">规则 · 实时通知</text>
+    <text x="580" y="76">任务引擎</text><text x="580" y="94" fill="#8b949e" font-size="11">定时 · 自动化</text>
+    <text x="810" y="76">数据通道</text><text x="810" y="94" fill="#8b949e" font-size="11">多种接入方式</text>
+  </g>
+  <!-- arrow down -->
+  <g stroke="#2d333b" stroke-width="2">
+    <line x1="480" y1="114" x2="480" y2="144"/>
+  </g>
+  <text x="492" y="136" fill="#8b949e" font-size="12">能力模块</text>
+  <!-- modules -->
+  <g fill="#161b22" stroke="#3fb950">
+    <rect x="40" y="150" width="205" height="88" rx="10"/>
+    <rect x="265" y="150" width="205" height="88" rx="10"/>
+    <rect x="490" y="150" width="205" height="88" rx="10"/>
+    <rect x="715" y="150" width="205" height="88" rx="10"/>
+  </g>
+  <g fill="#e6edf3" font-size="13" text-anchor="middle">
+    <text x="142" y="180">售后智能分析</text><text x="142" y="200" fill="#8b949e" font-size="11">工单归集 · 分类 · 复盘</text>
+    <text x="367" y="180">数据可视化</text><text x="367" y="200" fill="#8b949e" font-size="11">看板 · 评分 · 风险</text>
+    <text x="592" y="180">自动采集</text><text x="592" y="200" fill="#8b949e" font-size="11">多平台 · 增量同步</text>
+    <text x="817" y="180">智能客服/运营</text><text x="817" y="200" fill="#8b949e" font-size="11">选品 · 上架 · 应答</text>
+  </g>
+  <!-- feedback loop -->
+  <g fill="none" stroke="#3fb950" stroke-width="2" stroke-dasharray="6 4">
+    <path d="M955 150 q22 40 0 80" opacity=".7"/>
+  </g>
+  <text x="90" y="266" fill="#8b949e" font-size="12">数据处理</text>
+  <g fill="#161b22" stroke="#d29922">
+    <rect x="40" y="280" width="205" height="80" rx="10"/>
+    <rect x="265" y="280" width="640" height="80" rx="10"/>
+  </g>
+  <g fill="#e6edf3" font-size="13">
+    <text x="142" y="318" text-anchor="middle">采集 / 归档 / 导出</text>
+    <text x="585" y="308" text-anchor="middle">数据闭环</text>
+    <text x="585" y="334" fill="#8b949e" font-size="12" text-anchor="middle">售后痛点 / 用户诉求 → 反向驱动选品与运营策略</text>
+  </g>
+</svg>
+  </div>
+</section>
+
+<section id="updates" class="wrap">
+  <h2><span class="num">05</span>近期更新</h2>
+  <p class="lead">持续演进，沉淀自动化能力。</p>
+  <ul class="tl">
+    <li><span class="n">2026-09-23</span><div class="t">项目正式结项归档：能力域与规模口径封存，展示站转为只读存档</div><div class="d">结项盘点封存口径：约 2.4 万行后端与采集源码、150+ 接口、43 个业务模块、7 个能力域；明确记录商品铺货未接入真实发布与抖店授权依赖聚水潭两类边界。展示站转为归档态，工作日志停止追加，每日自动归档任务下线。</div></li>
+    <li><span class="n">2026-09-14</span><div class="t">商品铺货推进到「聚水潭 SKU 换货品·绑定预检」+ AI 标题生成再轻量化</div><div class="d">核查确认所有授权经聚水潭实现（不依赖独立抖店应用），商品发布后可通过已获批的「SKU 对应关系」接口建立「平台商品 SKU ↔ 真实货品」映射；新增只读绑定预检入口逐行预查映射冲突/缺失/停用，真实绑定与发布仍待验证；标题生成由「多轮提取+审核」轻量化为「必含词注入 + 轻量单次生成 + 专职小模型」，本机平均 3 秒内完成，通过程序即时校验保证质量与诚实边界。</div></li>
+    <li><span class="n">2026-09-13</span><div class="t">商品铺货接入「聚水潭资料读取」+ AI 动态生成并程序校验标题</div><div class="d">粘贴任意有权限的抖店主商品链接即可经聚水潭货品接口读取该商品的原标题/规格/货品信息与来源快照（ERP 参考价与库存只作参考、不自动填入目标店）；新标题由本地大模型基于原商品资料动态生成——先提取「确实存在于原文」的事实、剔除功效/年份/营销宣称，程序即时校验字数（优化目标 30 汉字）、核心品类靠前、防重复与冲突描述，人工「采用」才写入草稿；标题生成由「多次调用+独立审核」重构为「单次调用+程序即时校验」以大幅提速，资料不变则复用、结果始终人工对照实物核对；真实发布仍未接入，草稿沿用 fail-closed 边界；同步修复打开后台「有头窗口」失效自恢复，并沉淀「展示宽度计数」「浏览器上下文存活检查」两个通用函数进复用库。</div></li>
+    <li><span class="n">2026-09-12</span><div class="t">商品跨店复制铺货「抖店先行」原型落地（主链接识别 + 发布草稿 + 前台改版）</div><div class="d">新增商品铺货能力：从一个主商品链接开始（不设固定源店）——识别抖店/抖音商品身份、服务器端安全展开分享短链（逐跳校验、不携带登录凭证）、按目标店整理规格与售价并保存发布草稿；商品铺货进入运营/管理员/员工一级导航，原平台页面可将当前链接一键送入工作台直达铺货页；真实发布尚未接入平台，草稿明确标注待核验，旧接口不再模拟成功；同步沉淀「安全链接解析」通用函数（防 SSRF/凭据外泄）进复用库。</div></li>
+    <li><span class="n">2026-09-11</span><div class="t">新增「自动化中心」计划任务调度 + 单店铺「商品售后改进报告」模板 v2</div><div class="d">新增计划任务调度能力：按每天/每周/间隔/单次频率、选择已启用的采集店铺与自定义或滚动日期范围，自动执行店铺数据采集与售后分析并生成报告，带运行互斥与中断恢复（服务重启后运行中任务自动标记中断、不重复补跑）；售后报告渲染重构为独立商品视角模板——按商品聚合单数与金额、按售后退款单号精确回挂客服会话证据逐单核对，并针对尺码/胸垫/色差/做工/面料等高频问题给出产品核查与改进建议。</div></li>
+    <li><span class="n">2026-09-10</span><div class="t">抖店售后纳入「统一分析工单源」+ 确定性关联命中率修复 + 数据库健康熔断沉淀</div><div class="d">售后分析数据入口收敛为统一工单加载器：普通平台读订单台账、抖店额外合并聚水潭售后表，外部数据库不可用时自动健康熔断降级、不影响整体分析出图；针对"同一退款对应多段对话、关键词多值"造成的会话关联漏匹配做确定性修复，关联命中率显著提升，关联明细导出去掉单次上限改为分批全量；修复飞鸽共享调试浏览器被 `close()` 误关导致的采集报错（改上下文复用"释放不关闭"）；页面登录后店铺加载与一键启动响应优化；「外部依赖健康探测」抽为通用函数沉淀复用库并补全回归断言。</div></li>
+    <li><span class="n">2026-09-09</span><div class="t">1688 售后分析口径统一 + 抖店对数源同店登录解耦</div><div class="d">把 1688 售后分析的范围判定与导入入口收口到同一函数，三处报告（一键 / 汇总 / 周报）统一沿用概览实际消费的「合格工单集合」，消除"同一批单导入入选、分析却二次排除"的口径打架；抖店/抖音双数据源同店登录解耦——登录规则归一、移除托管店未补账号即拒登的拦截、人工登录后保留已认证页面（避免重新跳登录页），并对会话消息角色按多平台别名归一展示。</div></li>
+    <li><span class="n">2026-09-07</span><div class="t">售后报告升级「管理级经营汇总」+ 报表导出 PDF/关联明细 + 演示视频脱敏</div><div class="d">多店铺汇总售后报告重构为决策层可读的管理级经营汇总（管理层结论、店铺经营对标、问题结构横向比较、管理动作建议 P1/P2/P3），全链路口径统一收敛「合格工单」；新增报告导出——已归档 HTML 报告一键渲染为连续长 PDF、以及只导出「已关联客服会话」的售后单明细 XLSX；修复淘宝客服会话 Cookie 保活导致的账号标识错乱与 1688 会话列空白；真实数据目录回连 + 启动防回退 + 一键重启；新增演示视频脱敏工坊（相对坐标遮挡 + 马赛克，合成 720p 脱敏演示视频）供展示站使用。</div></li>
+    <li><span class="n">2026-09-05</span><div class="t">1688 售后分析链路闭环 + 数据目录外置与采集稳定性加固</div><div class="d">1688 售后纳入官方报表入库口径并对齐淘宝，一键分析流程补登录态校验与「按工单定向采集买家」、导出与会话采集间加风控冷却；售后工单改「主行操作 + 副行详情」并新增会话匹配状态列；数据目录整体外置到可配置外部根（环境变量可改、自动建目录）并配迁移工具，全局采集互斥锁空锁清理 + 内存态校正 + 竞态重试，根治「锁卡死误拦所有采集」；下载改为拦截后按文件头另存、1688 旺旺用完整 Cookie 注入、精准采集前复用本地精确会话降风控；登录态实时感知回写、1688 登录失效前置拦截、夜间自动采集补全。</div></li>
+    <li><span class="n">2026-09-04</span><div class="t">售后分析聚焦「面向决策层」交付 + 采集口径收敛 + 启动基建加固</div><div class="d">问题分析中心补齐「平台」维度筛选与自定义时间范围、改按所选区间逐日核对覆盖；报告面向领导重构为易读交付——逐单证据高亮、卡片式核对、报告入口动态读取最新归档；解耦「托管店」与直连店铺归属判定、采集统一走官方报表并按目标页校验登录态；启动脚本改按业务健康接口就绪后再弹网页、前端 file:// 打开自动跳同源，沉淀通用日期/词表 Excel 导出工具。</div></li>
+    <li><span class="n">2026-09-03</span><div class="t">关键词专题分析上线 + 淘宝会话采集网络故障修复</div><div class="d">问题分析中心新增「关键词专题分析」：沉淀 9 类商品问题检索词库，在客服会话中按关键词召回证据并归因聚合，严格区分「精确 / 候选 / 歧义 / 仅订单级」四层证据、仅精确关联计入统计，支持按平台分店铺多选、自定义关键词、逐店覆盖核查与双表导出 + 单条溯源；同步定位修复淘宝千牛采集"fetch failed"（受限网络 DNS 优先不可用 IPv6 路由被拒，改 IPv4 优先并携带底层错误码）；登录态明确「复用 / 强制重登」双态；抽取零依赖 Excel 导出器沉淀复用库。</div></li>
+    <li><span class="n">2026-09-02</span><div class="t">1688 售后切官方报表入库 + 会话采集拆双通道 + 引擎统一风控门控</div><div class="d">1688 售后主链路由页面采集切换为官方报表一键入库（按字段语义映射并入工单、不覆盖历史），显著降低对页采与风控的依赖；淘宝 / 1688 客服会话采集梳理为「常规整窗批量 + 售后单驱动补采」双通道避免重复与漏采；店铺登录态改为「复用优先」并新增一键打开后台直达入口；浏览器引擎新增统一风控闸门（全局互斥 + 冷却 + 持锁复用），并把「单飞门控执行器」「数据集分区工具」抽为通用函数沉淀进复用库。</div></li>
+    <li><span class="n">2026-09-01</span><div class="t">售后—会话「确定性闭环」+ 淘宝会话全量扫描与精准采集</div><div class="d">售后单与客服会话从「多证据评分关联」推进到「确定性闭环」：持久化售后单→会话最终状态、同一原订单复用确定性结果避免重复访问平台、会话按确定单号分段落库并补齐完结率统计，让每个退款可精确回溯到对应买家对话；淘宝会话升级为结构化双标识提取（订单号 + 售后单号，子订单优先）与「售后台驱动」的全量扫描 + 精准采集所选单；采集互斥升级为跨进程文件锁并持久化店铺访问冷却，多进程统一遵守最小访问间隔。</div></li>
+    <li><span class="n">2026-08-31</span><div class="t">淘宝客服会话「售后单驱动」确定性采集</div><div class="d">淘宝客服会话从遍历联系人改为「售后单驱动」：由售后详情页直达入口精准定位唯一买家会话，不再靠昵称猜测；售后分析范围口径重构为三态判定（仅已完成退货退款进入商品分析）；1688 旺旺同步改为售后订单驱动 + 旺旺直达；完成本地交付验收固化与登录态跨域 Cookie 多域复用修复。</div></li>
+    <li><span class="n">2026-08-30</span><div class="t">安全工作台「权限隔离 + 凭据脱敏 + 原子写入」系统性加固</div><div class="d">配置/状态 JSON 全部改为原子写入防中断损坏；登录失败限流 + 密码独立盐加密 + 会话密钥自动生成；客服会话等数据按运营负责店铺做权限隔离，店铺密码 / Cookie / 接口密钥一律不回传，报告接口鉴权、静态目录收敛；同步修复 1688 登录态跨域 Cookie 复用与聚水潭令牌续期链路。</div></li>
+    <li><span class="n">2026-08-30</span><div class="t">售后单一键直达会话 + 采集健壮性 + 交付验收固化</div><div class="d">售后详情直达「联系买家 / 旺旺在线」入口实现售后单一键回溯对应客服会话，采集入库回填订单号为工单×会话关联补充文本证据；1688 旺旺消息时间多源兜底与日期回补、会话列表空判定防误报成功；工单/订单列表统一按申请时间倒序；新增本地交付验收脚本一键覆盖语法、鉴权、跨域与路径脱敏等边界。</div></li>
+    <li><span class="n">2026-08-29</span><div class="t">售后链路字段口径收敛 + 多证据加权关联</div><div class="d">售后链路「字段口径 + 采集入口」系统性收敛：平台级字段白名单 + 官方导出弹窗强制勾选、reason 去兜底并新增平台原值审计字段、工单×会话关联升级为多证据加权打分与分平台差异化时间窗口；售后自动化升级为系统级定时任务，并沉淀通用 mtop 调用函数与售后知识库。</div></li>
+    <li><span class="n">2026-08-28</span><div class="t">1688 售后采集切换官方报表导入 + 自动周报</div><div class="d">1688 售后采集从 RPA 详情页爬取切换为官方报表导入（零成本、零风控）：无第三方依赖解析报表文件、按 19 列字段语义映射并入工单且不覆盖历史；新增售后自动周报编排与企微群推送、报告归档面板；旺旺/飞鸽采集完成即整窗标记已采，覆盖日历可区分「无数据」与「未采集」。</div></li>
+    <li><span class="n">2026-08-26</span><div class="t">聚水潭售后归因闭环 + 1688 采集健壮性</div><div class="d">接入聚水潭售后数据后补齐归因闭环：售后工单批量落库、按单号确定性关联客服会话、深度归因分析与问题归属编辑；1688 会话采集强化健壮性并精确提取订单号；将订单号递归提取、关键词归因、日期切窗等通用能力沉淀进复用库。</div></li>
+    <li><span class="n">2026-08-23</span><div class="t">工程级别盘点 + 预警误命中修复</div><div class="d">对整套工作台做工程规模与完成度盘点（约 1.9 万行源码 / 120+ 接口），形成"中小型内部业务系统"定位与对外口径；修复关键词预警中纯数字词含于长数字串等的子串误命中，改为带词边界匹配并回填。（08-23 时点口径，当前已演进至约 2.4 万行后端与采集源码 / 150+ 接口）</div></li>
+    <li><span class="n">2026-08</span><div class="t">聊天记录采集与分析能力演进</div><div class="d">支持从标准化导出文件批量补全历史数据（幂等去重、来源可区分）；采集与 AI 归纳支持定时自动化（无人值守）并展示运行状态；工作台新增单会话 AI 小结、长文本展开与按范围导出。</div></li>
+  </ul>
+</section>
+
+<section id="plan" class="wrap">
+  <h2><span class="num">06</span>落地方式</h2>
+  <p class="lead">把工程能力沉淀成可长期演进的工作流。</p>
+  <ul class="tl">
+    <li><span class="n">STEP 01</span><div class="t">规划与架构</div><div class="d">拆解业务诉求，设计分层模块与数据闭环，形成落地方案。</div></li>
+    <li><span class="n">STEP 02</span><div class="t">工程落地</div><div class="d">分模块实现，注重边界清晰与低耦合，核心配置一律环境变量注入。</div></li>
+    <li><span class="n">STEP 03</span><div class="t">通用沉淀</div><div class="d">将可复用能力抽离为通用库，登记索引，供后续项目直接复用。</div></li>
+    <li><span class="n">STEP 04</span><div class="t">自动化归档</div><div class="d">周期性扫描改动、自动总结复盘并归档，让工作过程可追溯、可沉淀。</div></li>
+  </ul>
+</section>
+
+<footer class="wrap">
+  <div class="note">本作品集仅用于能力展示，内容均已脱敏，不包含任何真实业务数据、账号、凭证或敏感配置。</div>
+  <div style="margin-top:16px">© 2026 · 自动化工程作品集 · 电商运营自动化 · <a href="../index.html" style="color:var(--accent);text-decoration:none">返回总览</a></div>
+  <div style="margin-top:8px;color:#d29922">项目已结项归档（2026-09-23）· 本页为只读存档，不再更新</div>
+</footer>
+</body>
+</html>
