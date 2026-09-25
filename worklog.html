@@ -69,8 +69,8 @@
   <h1>每天做了什么，都在这里<span class="grad">。</span></h1>
   <p class="sub">跨项目的工程日记：按天记录项目进展、功能实现与工程改进，均已脱敏，含早期历史补录。条目按项目标注「电商」与「自媒体」，已完结项目的条目保留在时间线中作为能力存档。</p>
   <div class="stats">
-    <div class="stat"><b>32</b><span>记录天数</span></div>
-    <div class="stat"><b>96</b><span>累计条目</span></div>
+    <div class="stat"><b>33</b><span>记录天数</span></div>
+    <div class="stat"><b>100</b><span>累计条目</span></div>
     <div class="stat"><b>2026-08-14</b><span>起始日期</span></div>
     <div class="stat"><b>每日 20:00</b><span>更新机制</span></div>
   </div>
@@ -80,6 +80,28 @@
 
 <section class="wrap">
   <div class="timeline">
+
+    <div class="day">
+      <div class="date">2026-09-25 <small>4 条</small></div>
+      <div class="items">
+        <div class="item">
+          <h4><span class="pj-sm">自媒体</span>[发布通道与降级] 抖音发布前置工具落地：一键导出登录态，并探针抓取发布页候选选择器</h4>
+          <p>新增登录态导出与选择器探针脚本（scripts/capture_douyin_login.py），把全链路实验里唯一还留在人手的外部堵点工具化：交互登录一次即导出 Playwright storage_state，可落文件、也可直接写入账号凭据字段（自动加密并置为已授权），--probe 顺带抓取发布页候选元素用于回填选择器 YAML，--check 仅校验环境而不启动浏览器。工具不实现自动登录，仍严格复用既有登录态，并与其他浏览器通道一致绕过本机系统代理。选择器回填与真机演练后的实际发布效果尚未验证。</p>
+        </div>
+        <div class="item">
+          <h4><span class="pj-sm">自媒体</span>[工程与数据治理] 选择器契约测试：把「漏改键名」的运行时错误提前到测试阶段</h4>
+          <p>新增静态契约测试，扫描发布器源码中所有 sel["key"] / sel.get("key") 引用，断言这些键全部存在于 selectors/douyin.yaml。抖音选择器是人工核验的占位值、平台改版后极易漏改键名，该测试把原本要等真机运行才暴露的 KeyError 提前到测试阶段，并能在无人值守场景下持续守住代码与配置的契约。全量测试 284 项通过。</p>
+        </div>
+        <div class="item">
+          <h4><span class="pj-sm">自媒体</span>[产品与设计] 架构文档 V1.6 补齐发布前置工具入口与两条已知边界</h4>
+          <p>在架构与设计准则文档的 V1.6 章节登记新增的探针工具与契约测试，并写明两条边界：一是选择器仍为占位，首次演练前必须人工核对回填，这是实验跑通的唯一堵点、不在代码逻辑内；二是浏览器通道的「上传」与「提交」分属两个独立会话，视频会被重复上传一次，属已知低效但不影响功能正确性，优化应在调度层合并会话而非在发布器内打补丁。</p>
+        </div>
+        <div class="item">
+          <h4><span class="pj-sm">自媒体</span>[工程与数据治理] 本机服务当日持续驻留约十小时，启动链路修复在真实路径上复现通过</h4>
+          <p>本地服务与调度进程于上午启动后持续驻留至晚间（约十小时），健康检查返回 200，调度进程正常轮询，数据文件在晚间仍有写入，启动日志中无未预期异常。此前「健康检查被本机系统代理劫持、导致误判服务启动失败」的缺陷修复，因此在真实启动路径上再次得到印证。更长周期的无人值守稳定性仍需继续观察。</p>
+        </div>
+      </div>
+    </div>
 
     <div class="day">
       <div class="date">2026-09-24 <small>5 条</small></div>
